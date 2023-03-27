@@ -85,10 +85,15 @@ print('\n', comparison)
 
 requested_toppings = ['mushrooms', 'onions', 'pineapple']
 
-Whet_toppings = 'mushrooms' in requested_toppings # the variable 'in' help us to to see if a string is in a list or array
+What_toppings = 'mushrooms' in requested_toppings # the variable 'in' help us to to see if a string is in a list or array
 
 
-print('\n', Whet_toppings)
+print('\n', What_toppings)
 
+
+What_toppings = 'pepperoni' in requested_toppings 
+
+
+print('\n', What_toppings)
 
 
