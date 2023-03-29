@@ -281,18 +281,16 @@ print("\nTest whether an item is in a list")
 
 subjects = ['english', 'regional language', 'computer basic']
 
-
-if 'regional language' in subjects:
-    print('\nYou chose regional language as your favorite subject:')
-    del subjects[1]
-    subjects.insert(0,'regional language')
-
-
 def favorite(subjects):
     n = 0
     for subject in subjects:  
         n = n + 1
         print("\n",n," ",subject)
+
+if 'regional language' in subjects:
+    print('\nYou chose regional language as your favorite subject:')
+    del subjects[1]
+    subjects.insert(0,'regional language')
 
 favorite(subjects)
 
