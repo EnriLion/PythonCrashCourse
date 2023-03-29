@@ -151,3 +151,155 @@ if Other_cat == Cat:
 else:
     print(f"Is cat == 'british' ? I predict {Other_cat}.")
 
+
+Cat = 'maine coon'
+
+Other_cat = Cat != 'dog'
+
+if Other_cat != Cat: 
+    print(f"Is cat != 'dog' ? I predict {Other_cat}.")
+else:
+    print(f"Is cat != 'dog' ? I predict {Other_cat}.")
+
+
+print("\nTest using the lower() method")
+
+boy = 'Marcus'
+
+Adult = boy.lower() == 'marcus'
+
+print("Is boy = 'marcus' ? I predict True.")
+print(Adult)
+
+
+Adult = boy.lower() == 'josh'
+
+print("Is boy = 'josh' ? I predict False.")
+print(Adult)
+
+
+print("\nNumerical test")
+
+x = 20
+
+y = 5 
+
+Is_greather = x > y
+
+print("Is x greather than y ? I predict True.")
+print(Is_greather)
+
+Is_greather = x < y
+
+print("Is x less than y ? I predict False.")
+
+print(Is_greather)
+
+
+Kid = 17
+
+Grown_up = 25
+
+
+No_kid = Kid <= Grown_up
+
+if No_kid == True:
+    print("\nAre you a grown up? I predict true")
+    print(No_kid)
+else:
+    print("\nAre you a grown up? I predict false")
+    print(No_kid)
+
+
+No_kid = Kid >= Grown_up
+
+if No_kid == False:
+    print("\nAre you a grown up? I predict False")
+    print(No_kid)
+else:
+    print("\nAre you a grown up? I predict True")
+    print(No_kid)
+
+d = 43
+
+c = 62
+
+Statement = (d < c) or (c > d)
+
+if Statement == False:
+    print("\nThis statement is real? I predict False")
+    print(Statement)
+else:
+    print("\nThis stamente is real ?I predict True")
+    print(Statement)
+
+Statement = (d < c) and (c > d)
+
+if Statement == False:
+    print("\nThis statement is real? I predict True")
+    print(Statement)
+else:
+    print("\nThis stamente is real ?I predict False")
+    print(Statement)
+print("\nThis statement will absolute true cause the statement will not be there cause is true and if is false is not going to be anywhere unless will be in a loop")
+print(Statement)
+
+if (64 > 10 ) or (10 > 64):
+    print("\nYou got it")
+else:
+    print("\nYou don't got it")
+
+if (64 > 10 ) and (10 < 64):
+    print("\nYou got it")
+else:
+    print("\nYou don't got it")
+
+
+print("\nTests using the and keyword and the or keyword")
+Garage = ['tesla', 'bmw', 'ferrari', 'ford']
+
+if ('porsche' in Garage) or ('tesla' in Garage):
+    print('\nWhether of the two cars are in my garage')
+else:
+    print('Whether of the two cars are not in my garage')
+
+
+if ('bmw' in Garage) or ('tesla' in Garage):
+    print('\nWhether of the two cars are in my garage')
+else:
+    print('Whether of the two cars are not in my garage')
+
+
+if ('volkswagen' in Garage) or ('seat' in Garage):
+    print('\nWhether of the two cars are in my garage')
+else:
+    print('\nWhether of the two cars are not in my garage')
+
+
+
+print("\nTest whether an item is in a list")
+
+subjects = ['english', 'regional language', 'computer basic']
+
+
+if 'regional language' in subjects:
+    print('\nYou chose regional language as your favorite subject:')
+    del subjects[1]
+    subjects.insert(0,'regional language')
+
+
+def favorite(subjects):
+    n = 0
+    for subject in subjects:  
+        n = n + 1
+        print("\n",n," ",subject)
+
+favorite(subjects)
+
+print("\nTest whether an item is not in a list")
+
+if 'computer science' not in subjects:
+    print('\nYou chose computer science as your favorite subject:')
+    subjects.insert(0,'computer science')
+
+favorite(subjects)
