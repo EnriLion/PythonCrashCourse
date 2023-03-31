@@ -76,3 +76,8 @@ elif age >= 65: # in this case the greater than and equal than 65 will be set th
     price = 20 
 
 print(f"Your admission cost is ${price}")
+
+#Testing multiple conditions
+
+#the elif else chain is powerful but it's only appropiate when you just need one test to pass
+
