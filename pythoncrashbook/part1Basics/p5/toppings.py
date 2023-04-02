@@ -49,3 +49,9 @@ elif 'extracheese' in requested_topping:
 print("\nFinished making you pizza!")
 
 #the block sentence will never work because the extracheese or pepperoni are never checked and all the first will be added but all their other toppings will be missed.
+
+
+##Checking for special items
+
+
+requested_topping = ['mushrooms', 'extra cheese', '']
