@@ -54,4 +54,61 @@ print("\nFinished making you pizza!")
 ##Checking for special items
 
 
-requested_topping = ['mushrooms', 'extra cheese', '']
+print("\n")
+
+requested_toppings = ['mushrooms', 'extra cheese', 'green peppers']
+
+for requested_topping in requested_toppings:
+    print(f"Adding {requested_topping}")
+
+print("\nFinished making your pizza!")
+
+#Runs out of green pepper
+
+print("\n")
+
+requested_toppings = ['mushrooms', 'extra cheese', 'green peppers']
+
+
+for requested_topping in requested_toppings:
+    if requested_topping == 'green peppers':
+        print("Sorry, we are out of green peppers right now.")
+    else:
+         print(f"Adding {requested_topping}")
+
+print("\nFinished making your pizza!")
+
+
+print("\n")
+
+#Checking that a list ia not empty
+
+requested_toppings = list()
+
+if requested_toppings:  
+    for requested_topping in requested_toppings:
+        print(f"Adding {requested_topping}")
+    print("\nFinished making your pizza!")
+else:
+    print("Are you sure you want a plain pizza?")
+
+
+print("\n")
+
+#Using multiple lists
+
+available_toopings = ['mushrooms', 'olives', 'green peppers', 'pepperoni', 'pineapple', 'extra cheese' ]
+
+requested_toppings = ['mushrooms', 'french fries', 'extra cheese']
+
+for requested_topping in requested_toppings:
+    if requested_topping in available_toopings:
+        print(f"Adding {requested_topping}")
+    else:
+        print(f"Sorry, we dont have  {requested_topping}")
+
+print("\nFinished making your pizza!")
+
+print("\n")
+
+
