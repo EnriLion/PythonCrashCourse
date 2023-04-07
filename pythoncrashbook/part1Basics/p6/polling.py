@@ -67,4 +67,15 @@ languages = {'python', 'ruby', 'python', 'c'}
 print(languages)
 #Notes: It's easy to mistake sets for dictionaries because they're both wrapped in braces. When you see braces but no key-value pairs, you're probably looking at a set. Unlike lists and dictionaries, sets do not retain items in any specific-order
 
+#Polling
+
+Should_taken = ['edward', 'jen', 'richarldison', 'mierdin', 'jane']
+
+for name in favorite_languages.keys():
+    if name in Should_taken:
+        print(f"Congratulations for taking the poll, {name.title()}")
+    else:
+        print(f"Please take the poll {name.title()}")
+
+    
 
