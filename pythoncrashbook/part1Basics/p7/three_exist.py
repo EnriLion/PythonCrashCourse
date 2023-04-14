@@ -14,7 +14,9 @@ while message != "quit":
 
 
 #Use a conditional test in the while statement to stop the loop
+print("\n")
 
+        
 #Use an active variable to control how lobg the loop runs
 print("\n")
 
@@ -26,4 +28,15 @@ while flag:
     print(advise)
     if message == "quit":
          flag = False
+#Use a break statement to exit the loop when the user enters a quit
 
+
+
+print("\n")
+
+while flag:
+    message = input(prompt)
+    advise= f"Adding the topping({message}) to your pizza"
+    print(advise)
+    if message == "quit":
+        break
