@@ -12,14 +12,14 @@ confirmed_users = []
 #Move each verified user into the list of confirmed users.
 
 while unconfirmed_users:#runs as the list is empty
-    current_user = unconfirmed_users.pop()#
-
+    current_user = unconfirmed_users.pop()# runs as long as the list unconfirmed is not empty with the pop() funct removes unverfied users one at a time from the of  unformed_users
     print(f"Verifying user: {current_user.title()}")
     confirmed_users.append(current_user)
 
+
 #Display all confirmed users.
 
-print(f"Verifying user: {current_user.title()}")
+print(f"The following users have been confirmed:")
 for confirmed_user in confirmed_users:
     print(confirmed_user.title())
 

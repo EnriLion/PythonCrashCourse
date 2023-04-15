@@ -1,5 +1,3 @@
-
-
 prompt = "\nWhat is your age?"
 prompt +="\nAnd I will give you the charge :"
 
