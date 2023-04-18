@@ -38,4 +38,29 @@ def describe_pet(pet_name, animal_type='dog'):
 describe_pet(pet_name='willie')
 
 
+describe_pet('willie')
+
+#to describe an animal other than a dog:
+
+describe_pet(pet_name='harry', animal_type='hamster')
+
+#Because an explicit value for animal is provifed python ignore the parameter 
+
+#Equivalent functions calls
+
+#A dog named Willie
+describe_pet('willie')
+describe_pet(pet_name='willie')
+
+#A hamster named Harry
+
+describe_pet('willie')
+describe_pet(pet_name='harry', animal_type='hamster')
+describe_pet(animal_type='hamster', pet_name='harry')
+
+#Note: It does'nt really matter which you use as long as the output produce as you want
+
+#Avoiding arguments
+
+# describe_pet() # we will give us a traceback
 
