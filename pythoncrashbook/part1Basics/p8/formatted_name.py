@@ -40,7 +40,7 @@ musician = get_formatted_name('jimi', 'hendrix')
 print(musician)
 
 
-musician = get_formatted_name('jimi', 'hooker', 'lee')
+musician = get_formatted_name('jimi', 'hooker', 'lee')#We are going to give thr middle namr as the last argument  to making sure that pythin will match up the positional atguments corrected
 print(musician)
 
 # Optional values allow functions to handle a wide range of use cases whiel letting function calls remain as simple as possible
