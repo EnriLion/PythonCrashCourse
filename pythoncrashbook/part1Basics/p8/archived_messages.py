@@ -18,7 +18,7 @@ def send_messages(message_text, sent_messages):
 #     for completed_message in completed_messages:
 #         print(completed_message)
 
-send_messages(message_text, sent_messages)
+send_messages(message_text[:], sent_messages)
 # sent_messages(completed_messages)
 print(message_text)
 # print(completed_messages)
