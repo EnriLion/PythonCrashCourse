@@ -49,4 +49,19 @@ print(f"My dog  is {my_dog.age} years old.")
 
 #Calling methods
 print("\n")
+my_dog.sit()
+my_dog.roll_over()
+#Creating multiple instances
+print("\n")
+my_dog = Dog('Willie', 6)#When python reads the line __init__()and its calls the init method in Dog with the arguments willie and 6.
+your_dog = Dog('Lucy', 3)
 
+print(f"My dog's name is {my_dog.name}.")
+print(f"My dog  is {my_dog.age} years old.")
+my_dog.sit()
+print("\n")
+print(f"My dog's name is {your_dog.name}.")
+print(f"My dog  is {your_dog.age} years old.")
+my_dog.sit()
+
+#Even if contain the same data python will be consider as different instances
