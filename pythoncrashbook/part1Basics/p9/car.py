@@ -50,7 +50,7 @@ class Car:
     ##3)Incrementing an Attribute's Value throguh a method.
     #Sometimes you'll want to increment  an attribute's value by a certain amount reather than a set an entirely new value(Say we buy a used car and put 100 miles on it between the time we buy it and the time we registered it)
 
-    def increment_odometer(self, miles):#Takes in a
+    def increment_odometer(self, miles):#Takes in a bymber of miles and adds this value to self-odometer_reading
         """Add the fiven amount to the odometer reading."""
         self.odometer_reading += miles
 
@@ -75,14 +75,15 @@ my_new_car.read_odometer()
 
 print("\n")
 #3)
-my_used_car = Car('subaru', 'outback', 2015)
+my_used_car = Car('subaru', 'outback', 2015)#we create a used car
 print(my_used_car.get_descriptive_name())
 
-my_used_car.update_odometer(23_500)
+my_used_car.update_odometer(23_500)#We set the odomter to 23,500 by calling update_odometer() and passing 23_500
 my_used_car.read_odometer()
 
-my_used_car.increment_odometer(100)
+my_used_car.increment_odometer(100)#We call increment_odomter() and pass it 100 to add the 100 miles that we drobe between buying the car and registering it.
 my_used_car.read_odometer()
 
+#Note: You can use methods to control how users of your program update values such as an odometer reading, but anyone with access to the program can set the odomter reading to any value by accessing the attribute driectly. Effective security takes extreme attention to detail in addition to basic checks like those shown here
 
 
