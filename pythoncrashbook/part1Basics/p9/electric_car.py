@@ -28,6 +28,21 @@ class Car:#parent class of the electric_car
     def increment(self, miles):
         self.odometer_reading += miles
 
+#Instances as attributes
+
+class Battery:
+    """A simple attempt to model a battery for an electric car."""
+
+    def __init__(self, battery_size=75):
+        """Initialize the battery's attributes."""
+        self.battery_size = battery_size
+
+    def describe_battery(self):
+        """Print a statement describing the battery size."""
+        print(f"This car has a {self.battery_size}-kwh battery.")
+
+
+
 class ElectricCar(Car):#we define the child class ElectricCar  and the name of the parent clas must be included in the parentheses
     """Represent aspects of a car, specific to electric vehicles."""
 
@@ -44,6 +59,12 @@ class ElectricCar(Car):#we define the child class ElectricCar  and the name of t
         """Print a statement describing the battery size."""
         print(f"This car has a {self.battery_size}-kwh battery.")
 
+    #Overriding Method from the Parent Class
+
+    def fill_gas_tank(self):
+        """Electric cars don't have gas tanks."""
+        print("This car doesn't need a gast tank!")
+
 my_tesla = ElectricCar('tesla', 'model s', 2019)
 print(my_tesla.get_descriptive_name())
 my_tesla.describe_battery()
@@ -54,4 +75,15 @@ my_tesla.describe_battery()
 
 #let's add an attribute that's specific to electric cars ( battery,etc) and a method to report on this attribute( we store the battery size and write a method that prints a description of the battery):
 
+#There's no limit to how much you can specialize the ElectricCar class. You can add as many attributes and methods as you need to model an electric car to wathever degree of accuracy you need. An attribute or method that could belong to any car, rahter than one that's specific to an electric car, should be added to the Car class instead of the ElectricCar calss. Then anyone who uses the Car class will have that functionality available as well and the Electri Car class will only contain code for the information and behavior specific to electric vehicles.
+
+##Overriding methods form the parent class
+
+#Python will disregard the parent class method and only pay attention to the method you define in the child class.
+
+#Say the class Car had a method called fill_gas_tank(). This method is meaningless for an an all-electric vehicle, so you might want to override this method. Here's one wat to do that:
+
+#If someone ties to call fill_gas_tank() with an electri car, Python will ignore the method in Car and run this code instead. When you use inheritance, you can make your child classes retain what you need and override anything you don't need from the parent class.
+
+##Instances as attributes
 
