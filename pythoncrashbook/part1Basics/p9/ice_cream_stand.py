@@ -15,6 +15,19 @@ class Restaurant:
         """Simulate that the restaurant is open"""
         print(f"The restaurant is open")
 
+    def describe_ice(self):
+        """Simulate that describes the ice cream"""
+        full_ice = f"Restaurant:{self.name}\nIce cream: {self.dish}"
+        return full_ice
+
+class IceCreamStand(Restaurant):
+    """A simple attempt to create an ice cream stand"""
+
+    def __init__(self, name, dish):
+        """A simple attempt to create an ice cream stand"""
+        super().__init__(name, dish)
+
+
 
 restaurant = Restaurant('McDonalds','Big mac')
 print(f"The restaurant name is {restaurant.name}")
@@ -23,3 +36,7 @@ print("\n")
 restaurant.open_restaurant()
 print("\n")
 restaurant.describe_restaurant()
+print("\n")
+flavors = IceCreamStand('Kwality', 'LimaIcream')
+print(flavors.describe_ice())
+
