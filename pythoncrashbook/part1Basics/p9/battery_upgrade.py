@@ -50,7 +50,12 @@ class Battery:#we define a new class called Battery that doesn't intherit from a
 
         print(f"This car can go about {range} miles on a full charge.")
 
-
+    def upgrade_battery(self):
+        """A method that shall check the battery size and capacity"""
+        if self.battery_size == 75:
+            self.battery_size = 100
+        elif self.battery_size == 100:
+            self.battery_size = 100
 
 
 class ElectricCar(Car):#we define the child class ElectricCar  and the name of the parent clas must be included in the parentheses
@@ -106,4 +111,8 @@ my_tesla.battery.get_range()#When we want to use this method, we again have to c
 #Modeling real-world
 
 #If we begin to model more complicated things like electric cars, you'll wrestle with interesting questions about the range of an electric car a property of the battery of the car... when you growth as a programmer the changes of thinking at higher logical lever rathern than a syntax-focused level(You're thinking not about Python but about how to represne the real world in code)
-
+print("\n")
+my_bmw = ElectricCar('bmw', 'bmw m', 2023)
+my_bmw.battery.get_range()
+my_bmw.battery.upgrade_battery()
+my_bmw.battery.get_range()

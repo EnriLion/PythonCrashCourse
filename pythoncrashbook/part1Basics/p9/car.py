@@ -6,6 +6,13 @@
 
 #Let's write a new class representing a car. Our class will store information abotu the kind of car we're working with , and it will have a method that summarizes information:
 
+#Importing Classes
+
+#Python lets store classes in modules and then import the classes you need in your main program.
+
+##Importing a single class
+
+#So technically is better to represent each calss in different modules for this example i made a directory with the classes(importing_classes)
 class Car:
     """A simple attempt to represent a car."""
     
@@ -22,9 +29,9 @@ class Car:
         """Print a statement showing the car's mileage."""
         print(f"This car has {self.odometer_reading} miles on it.")
 
-    def update_odometer(self, mileage):# this method takes ina mileage value and assigns it to self.odometer_reading
-        """Set  the odometer reading to the given value."""
-        self.odometer_reading = mileage
+    # def update_odometer(self, mileage):# this method takes ina mileage value and assigns it to self.odometer_reading
+    #     """Set  the odometer reading to the given value."""
+    #     self.odometer_reading = mileage
 
         #We can extend the method update_odometer() to do additional work every time the odometer reading is modified. Let's add a little logic to make sure no one tries to roll back the odometer reading:
 
