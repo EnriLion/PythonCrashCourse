@@ -1,3 +1,4 @@
+from printing_functions import print_models as p, show_completed_models as s
 ##Modifiying a list in a function
 
 # Start with some designs that need to be printed.
@@ -19,27 +20,27 @@ for completed_model in completed_models:
 #We could reorganize the code to make easi to understand
 
 print("\n")
-def print_models(unprinted_designs, completed_models):
-    """
-    Simulate printing each design, until none are left.
-    Move each design to completed_models after printing.
-    """
-    while unprinted_designs:
-        current_design = unprinted_designs.pop()
-        print(f"Printing model: {current_design}")
-        completed_models.append(current_design)
+# def print_models(unprinted_designs, completed_models):
+#     """
+#     Simulate printing each design, until none are left.
+#     Move each design to completed_models after printing.
+#     """
+#     while unprinted_designs:
+#         current_design = unprinted_designs.pop()
+#         print(f"Printing model: {current_design}")
+#         completed_models.append(current_design)
 
-def show_completed_models(completed_models):
-    """Show all the models that were printed"""
-    print(f"\n The following models have been printed:")
-    for completed_model in completed_models:
-        print(completed_model)
+# def show_completed_models(completed_models):
+#     """Show all the models that were printed"""
+#     print(f"\n The following models have been printed:")
+#     for completed_model in completed_models:
+#         print(completed_model)
 
 unprinted_designs = ['phone case', 'robot pendant', 'dodecahedron']
 completed_models = []
 
-print_models(unprinted_designs, completed_models)
-show_completed_models(completed_models)
+p(unprinted_designs, completed_models)
+s(completed_models)
 
 # Preventing a function from modifying a list
 

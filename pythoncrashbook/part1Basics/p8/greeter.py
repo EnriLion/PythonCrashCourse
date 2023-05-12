@@ -1,19 +1,30 @@
+import greeter_functions 
+from greeter_functions import greet_user
+from greeter_functions import greet_user as g
+import greeter_functions as gr
+from greeter_functions import *
 #Defining a function
 
-def greet_user():
-    """Display a simple greetimg.""" #this is called a docstring, whcih describe what the function does( are enclosed in triple quotes)
-    print("Hello!")
+# def greet_user():
+#     """Display a simple greetimg.""" #this is called a docstring, whcih describe what the function does( are enclosed in triple quotes)
+#     print("Hello!")
 
-greet_user()#the function only has one job print("Hello")
+# greet_user()#the function only has one job print("Hello")
 
 #Passing information to a function
 print("\n")
 
-def greet_user(username):
-    """Display a simple greetimg.""" #this is called a docstring, whcih describe what the function does( are enclosed in triple quotes)
-    print(f"Hello, {username.title()}!")
+# def greet_user(username):
+#     """Display a simple greetimg.""" #this is called a docstring, whcih describe what the function does( are enclosed in triple quotes)
+#     print(f"Hello, {username.title()}!")
 
-greet_user('jesse')#the function has the job to passing the username to a function
+greeter_functions.greet_user('jesse')#the function has the job to passing the username to a function
+print("\n")
+greet_user('jonathan')
+print("\n")
+g('andrade')
+print("\n")
+gr.greet_user('michael')
 
 #Arguments and Parameters
 
@@ -46,22 +57,22 @@ print("\n")
 print("\n")
 
 
-def get_formatted_name(first_name, last_name):
-    """Return a full name neatly formatted."""
-    full_name =f"{first_name} {last_name}"
-    return full_name.title()
-
-while True:
-    print("\nPlease tell me your name")
-    print("(enter 'q' at any time to quit)")
-
-    f_name = input('First name: ')
-    if f_name == 'q':
-        break
-    l_name = input('Last name: ')
-    if l_name == 'q':
-        break
- 
-    formatted_name = get_formatted_name(f_name,l_name)
-    print(f"\nHello, {formatted_name}!")
-
+# def get_formatted_name(first_name, last_name):
+#     """Return a full name neatly formatted."""
+#     full_name =f"{first_name} {last_name}"
+#     return full_name.title()
+v = input('You want to enter to this loop(y or yes)')
+if v == 'y' or v == 'yes':
+    while True:
+        print("\nPlease tell me your name")   
+        print("(enter 'q' at any time to quit)")
+        f_name = input('First name: ')
+        if f_name == 'q':
+            break
+        l_name = input('Last name: ')
+        if l_name == 'q':
+            break
+        formatted_name = get_formatted_name(f_name,l_name)
+        print(f"\nHello, {formatted_name}!")
+else:
+    print('Ok')

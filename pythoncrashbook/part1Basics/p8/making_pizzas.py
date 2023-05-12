@@ -64,4 +64,30 @@ from pizza import *
 make_pizza(16, 'pepperoni')
 make_pizza(12, 'mushrooms','green peppers', 'extra cheese')
 
-#the asterisk in the import statement tells python to copy every fucntion from the module pizza into this program file(however its best not to use this approach when you're working with larger modules that you didn't write: if the module has a dunction name that matches an existing name in your project)
+#the asterisk in the import statement tells python to copy every fucntion from the module pizza into this program file(however its best not to use this approach when you're working with larger modules that you didn't write: if the module has a function name that matches an existing name in your project)
+
+#Python may see several functions or variables with the same name, and instead of importing all the function separately, it will overwrite the functions.
+
+#the syntax of the following when you see them in other people's code:
+
+#-from module_name import *
+
+##Styling functions
+
+#if you specify a default value for a parameter, no spaces should be used on either side of the equal sign:
+
+#- def function_name(parameter_0, paramter_1='default value')
+
+#the same as keyword arguments in function calls:
+
+#- function_name(value_0, parameter_1='value')
+
+#the pep8 set that a function definition to be longer than 79 characters
+
+#most editors automitcally line up any additional lines of parameters to match to match indentation you have established on the first line:
+
+#-def function_name(
+#       parameter_0, parameter_1, parameter_2,
+#       parameter_3, parameter_4, parameter_5):
+#     function body...
+

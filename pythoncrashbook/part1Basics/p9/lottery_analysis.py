@@ -1,9 +1,10 @@
-from random import choice
-n = tuple()
-n = (1, 6, 8, 9, 11, 4, 3, 5, 0, 12, 'a' , 'c', 'd', 'e', 'f')
-my_ticket = (
-first_up = choice(n)
-print("Any tickey matching these four numbers or letters wins a prize")
-print(n)
-print("\n",first_up)
+from random import choice, randint
+my_ticket= (15, 6, 8, 9, 11, 4, 3, 5, 20, 12)
+for x in range(1,20):
+    for my_tickets in my_ticket:
+        m = my_tickets
+        if x == m:
+            print(f"You won the lottery at your {x} attempt")
+        break
+
 
