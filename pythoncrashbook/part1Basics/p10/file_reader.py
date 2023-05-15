@@ -50,7 +50,7 @@
 filename = 'pi_digits.txt'
 
 with open(filename) as file_object:
-    lines = file_object.readlines()
+    lines = file_object.readlines()#method takes each line from the file and stores it in a list and then is asigned to lines
 
-for line in lines:
+for line in lines:#we use a simple for loop to print each line from lines
     print(line.rstrip())
