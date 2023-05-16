@@ -14,9 +14,18 @@ for line in lines:#we create a loops that adds each line of digits to pi_string 
 # print(pi_string)#we print this string
 # print(len(pi_string)) #we prin the string and how long the string is
 
-print(f"{pi_string[:52]}...")
-print(len(pi_string)) 
+# print(f"{pi_string[:52]}...")
+# print(len(pi_string)) 
 
 #Large Files: One Million Digits
 #output of len:
 #10002 instead of 102 but we only have 102 characters not 10002 chracters as the example
+
+##Is Your Birthday Contained in Pi?
+
+birthday = input("Enter your birthday, in the form mmddyy: ")#Prompt the user birthday
+if birthday in pi_string:#We check if that string is in pi_string:
+    print("Your birthday appears in the first million digits of pi!")
+else:
+    print("Your brithday does not appear in the first million digits of pi.")
+

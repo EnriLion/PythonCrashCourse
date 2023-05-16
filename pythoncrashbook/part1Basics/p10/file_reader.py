@@ -1,8 +1,8 @@
 #Progtam that opens this file, reads it, and prints the contents of the file to the screen:
 
-# with open('pi_digits.txt') as file_object: 
-#     contents = file_object.read()
-#     print(contents.rstrip())# remove the extra blank line, we can use rstrip() function and print it.
+with open('pi_digits.txt') as file_object: 
+    contents = file_object.read()
+    print(contents.rstrip())# remove the extra blank line, we can use rstrip() function and print it.
 
 # print(contents)
 

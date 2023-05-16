@@ -1,0 +1,4 @@
+Summaryze of what I've learned about Python:
+In Python you can save the file and open and interact with strings.
+In Python you can manipualte the strings 
+In Python  you can use the data types  and does not use semicolons
