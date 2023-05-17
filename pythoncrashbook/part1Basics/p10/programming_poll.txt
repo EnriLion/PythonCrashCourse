@@ -1,0 +1,3 @@
+I Love Python
+I Love Scripting
+I Love Linux
