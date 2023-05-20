@@ -1,7 +1,7 @@
 #Working with Multiple Files
 ##Count_words() it's a good aproximation it will be easier to run the analysis for multiple books:
 def count_words(filename):
-    """Count the approximage number of words in a file."""#1
+    """Count the approximate number of words in a file."""#1
     try:
         with open(filename, encoding='utf-8') as f:
             contents= f.read()
