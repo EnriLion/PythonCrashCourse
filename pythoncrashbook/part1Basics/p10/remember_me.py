@@ -39,12 +39,13 @@ def get_stored_username():
         return username
 
 #We should factor one more and is the get_new_username():
-def greet_new_username():
+def get_new_username():
     """Prompt for a new username."""
     username = input("What is your name?")
     filename = 'username.json'
     with open(filename, 'w') as f:
         json.dump(username, f)
+    return username
 
 def greet_user():
     """Greet the user by name."""#a docstring about how currently works
@@ -72,4 +73,6 @@ def greet_user():
         print(f"We'll remember you when you come back, {username}!")
         
 greet_user()
+
+#The final version of remember_me.py has a single, clear purpose. we call the function(greet_user) and that function prints an appropiate message and it does by calling get_stored_username() which is reposinble only for retrieving a stored username if one exist. Finally, greet_user() calls get_new_username() if necessary, which is responsible only for getting a new usernme and storing it.( this compartmentalization works in an essential part of writing clear code that will be easy to maintain and extend.
 
