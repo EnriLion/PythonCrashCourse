@@ -1,0 +1,17 @@
+#Failing test
+E #This single E is which tell ys one unit test in the test case resulted in an error
+======================================================================
+ERROR: test_first_last_name (__main__.NamesTestCase)# the funcion and namestestcase cause the error
+Do names like 'Janis 'Joplin' work?
+----------------------------------------------------------------------
+Traceback (most recent call last):#the standard traceback which reports as get_formatted_name('janis, 'joplin') no longer works because it's missin a required positional argument
+  File "/home/leon/Projects/PythonCrashCourse/pythoncrashbook/part1Basics/p11/test_name_function.py", line 9, in test_first_last_name
+    formatted_name = get_formatted_name('janis', 'joplin')
+TypeError: get_formatted_name() missing 1 required positional argument: 'last'
+
+----------------------------------------------------------------------
+Ran 1 test in 0.001s #That one unit test was run
+
+FAILED (errors=1) # The test case failed 
+
+
