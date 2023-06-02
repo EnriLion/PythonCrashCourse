@@ -1,0 +1,8 @@
+--Exercises--
+
+1.Write a class called Car. The __init__() method should take in the make, model, and year of the car, and store them as attributes. Write a method calledget_mileage()that returns the mileage of the car. Write a unit test forCar`.
+
+2. Write a class called BankAccount. The __init__() method should take in the account number, balance, and interest rate of the bank account, and store them as attributes. Write a method calleddeposit()that deposits money into the bank account. Write a method calledwithdraw()that withdraws money from the bank account. Write a unit test forBankAccount`.
+
+3.Write a class called Student. The __init__() method should take in the student's name, ID number, and grade level, and store them as attributes. Write a method calledget_gpa()that returns the GPA of the student. Write a unit test forStudent`.
+

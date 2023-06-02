@@ -15,7 +15,6 @@
 #So technically is better to represent each calss in different modules for this example i made a directory with the classes(importing_classes)
 class Car:
     """A simple attempt to represent a car."""
-    
     def __init__(self, make, model, year):# we gave three parametes the make, model and year for our instance
         """Initialize attributes to describe a car."""
         self.make = make
