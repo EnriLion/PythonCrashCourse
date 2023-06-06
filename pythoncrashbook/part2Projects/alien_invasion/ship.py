@@ -17,6 +17,24 @@ class Ship:
         #Load the ship image and get its rect.
         self.rect.midbottom = self.screen_rect.midbottom# We position the ship at the bottom center of the screen to do we make the value self.rect.midbottom match the midbootom attribute of the screen'srect
 
+        #--Allowing Continuous Movement--
+
+        # Movement flag
+        self.moving_right = False #We add a self.moving_right attribute in the __init__() method and set ti to False initially
+
+        #--Moving Both Left and Right--
+        self.moving_left = False
+
+        #--Allowing Continuous Movement--
+
+    def update(self):#We add update() which moves the ship right if the flash is True(The upadte() method method will be called through an instance of Ship, so it's not considered a helper method. and we go to alien_invasion to modify _check_events
+        """Update the ship's position based on the movenet flag."""
+        if self.moving_right:
+            self.rect.x += 1
+
+        if self.moving_left:
+            self.rect.x -= 1
+
     def blitme(self):#we define the blime() mehtod, which draws the image to the scren at the positino specified by self.rect
         """Draw the ship at its curren tlocation."""
         self.screen.blit(self.image, self.rect)

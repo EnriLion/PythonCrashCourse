@@ -2,8 +2,6 @@ import sys
 
 import pygame
 
-from character import Character
-
 class BlueSky:
     """Overall class to manage game assets and behavior."""
 
@@ -11,11 +9,10 @@ class BlueSky:
         """Initialize the game, and create game resources."""
         pygame.init()
 
-        self.screen = pygame.display.set_mode((500, 700))
+        self.screen = pygame.display.set_mode((1200, 800))
         pygame.display.set_caption("Blue Sky")
-        self.bg_color = (225, 220, 90)
+        self.bg_color = (0, 0, 233)
 
-        self.ch = Character(self)
 
     def run_game(self):
         """Start the main loop for the game"""
@@ -27,7 +24,6 @@ class BlueSky:
 
             # Redraw the screen during each pass through the loop.
             self.screen.fill(self.bg_color)
-            self.ch.blitme()
 
             # Watch for keyboard and mouse events.
             pygame.display.flip()

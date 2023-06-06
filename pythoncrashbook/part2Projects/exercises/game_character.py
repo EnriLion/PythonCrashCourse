@@ -2,6 +2,8 @@ import sys
 
 import pygame
 
+from character import Character
+
 class GameCharacter:
     """Overall class to manage game assets and behavior."""
 
@@ -9,10 +11,11 @@ class GameCharacter:
         """Initialize the game, and create game resources."""
         pygame.init()
 
-        self.screen = pygame.display.set_mode((1200, 800))
+        self.screen = pygame.display.set_mode((500, 700))
         pygame.display.set_caption("Game Character")
-        self.bg_color = (0, 0, 233)
+        self.bg_color = (225, 220, 90)
 
+        self.ch = Character(self)
 
     def run_game(self):
         """Start the main loop for the game"""
@@ -24,12 +27,13 @@ class GameCharacter:
 
             # Redraw the screen during each pass through the loop.
             self.screen.fill(self.bg_color)
+            self.ch.blitme()
 
             # Watch for keyboard and mouse events.
             pygame.display.flip()
 
 if __name__ == '__main__':
     # Make a game instance, and run the game.
-    blue = GameCharacter()
-    blue.run_game()
+    game = GameCharacter()
+    game.run_game()
 

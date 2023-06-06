@@ -91,6 +91,8 @@ class AlienInvasion:
 
             #The _update_screen() Method
 
+            self.ship.update()
+
             self._update_screen()
 
 
@@ -105,6 +107,22 @@ class AlienInvasion:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 sys.exit()
+            elif event.type == pygame.KEYDOWN:#Inside the _check_events we add an elif block to the event loop to respond when Pygame detects a KEYDOWN event
+                if event.key == pygame.K_RIGHT:#The right arrow key represented by it(If the right arrow key was pressed, we move the ship to the right by increasing the value of self...
+            #         # Move the ship to the right.
+                    # self.ship.rect.x += 5# self.ship.rect.x by 1(moves one pixel right to the x
+                    self.ship.moving_right = True# We modify how the game respons wehn the player presses the right arrow key and instad of changing the psition directly, we set moving_right to True
+
+            #--Moving both left and right--
+                elif event.key == pygame.K_LEFT:
+                    self.ship.moving_left = True
+
+            #--Allowing Continuous Movement--
+            elif event.type == pygame.KEYUP:#we add a new elif block, which responds to KEYP events. When the player releases the right arrow key (K_RIGHT) we set movingright to False and now we modify the run_game()
+                if event.key == pygame.K_RIGHT:
+                    self.ship.moving_right = False
+                elif event.key == pygame.K_LEFT:
+                    self.ship.moving_left = False
 
     def _update_screen(self):#
         """Update images on the screen, and flip to the new screen."""
@@ -112,7 +130,6 @@ class AlienInvasion:
         self.screen.fill(self.settings.bg_color)
         #--Drawing the Ship to the Screen--
         self.ship.blitme()
-        #--Drawing the Ship to the Screen--
         pygame.display.flip()
 
 if __name__ == '__main__':
