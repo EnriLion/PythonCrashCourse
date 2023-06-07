@@ -8,6 +8,9 @@ class Ship:
     def __init__(self, ai_game):
         """Initialize the ship and set it s starting position."""
         self.screen = ai_game.screen#we assign the screen to an attribute of Ship, so we can access it eaily in all  the methods in this class
+        #--Adjusting ship speed--
+        self.settings = ai_game.settings# We create a settings attribute for Ship, so we can use it in update()( we are adjusting the position of the ship by fracions of a pixel)
+
         self.screen_rect = ai_game.screen.get_rect()# we access the screen's rect attribute using the get_rect() method and assign it to self.screen_rect. Doing so allow us to place the ship in the correct location on the scren
 
         #Load the ship image and get its rect.
@@ -16,6 +19,11 @@ class Ship:
 
         #Load the ship image and get its rect.
         self.rect.midbottom = self.screen_rect.midbottom# We position the ship at the bottom center of the screen to do we make the value self.rect.midbottom match the midbootom attribute of the screen'srect
+
+        #--Adjusting ship speed--
+
+        # Store a decimal value for the ship's horizontal position.
+        self.x = float(self.rect.x)#we create this variable to hold the ship position accurately, we define a new self.x attribute to hold decimal values and we conver the value of self.rect.x to a decimal and assign this value to self.x
 
         #--Allowing Continuous Movement--
 
@@ -29,11 +37,24 @@ class Ship:
 
     def update(self):#We add update() which moves the ship right if the flash is True(The upadte() method method will be called through an instance of Ship, so it's not considered a helper method. and we go to alien_invasion to modify _check_events
         """Update the ship's position based on the movenet flag."""
-        if self.moving_right:
-            self.rect.x += 1
+        # Update the ships's x value, not the rect.
+        #if self.moving_right:
+        #    # self.rect.x += 1
+        #    #--Adjusting ship speed--
+        #    self.x += self.settings.ship_spped# we change the ship  position in update() with the self.x is adjusted by the amount stoerd in settings.ship_speed
 
-        if self.moving_left:
-            self.rect.x -= 1
+        #if self.moving_left:
+        #    # self.rect.x -= 1
+        #    #--Adjusting ship speed--
+        #    self.x -= self.settings.ship_spped
+
+        if self.moving_right and self.rect.right < self.screen_rect.right:# This code check the position of the ship before changing the value of self.x. The code self.rect.right returns the x-coordinate of the right edge  of the ships rect. If this value is less than the value returned by self.screen?_rect.right the ship jasn't reached the right edge of the screen.
+            self.x += self.settings.ship_spped
+        if self.moving_left and self.rect.left > 0:#The same to the left edge is the left side of the rect is greater than zero, the ship hasn't reahced the left edge of the screen(Ensures the ship is within the bounds before adjusting the value of self.x)
+            self.x -= self.settings.ship_spped
+
+        # Update rect object from self.x.
+        self.rect.x = self.x# After self.x has been updated, we use the new value to update self.rect.x which controls the position of the ship only the integer portion of self.x will be stored in self.rect.x
 
     def blitme(self):#we define the blime() mehtod, which draws the image to the scren at the positino specified by self.rect
         """Draw the ship at its curren tlocation."""
