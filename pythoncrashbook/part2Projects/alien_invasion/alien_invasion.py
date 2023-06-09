@@ -68,9 +68,16 @@ class AlienInvasion:
         """Initialize the game, and create a game resources"""
         pygame.init()
 
+
         self.settings = Settings()
 
-        self.screen = pygame.display.set_mode((self.settings.screen_width, self.settings.screen_height))
+        #--Running the Game in Fullscreen Mode--
+        # self.screen = pygame.display.set_mode((self.settings.screen_width, self.settings.screen_height))
+        self.screen = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)# we create the screen surface we pass a size of 0,0 and the parameter pygame.FULLSCREE( tells python to figure out a window size that will fill the screen)
+        self.settings.screen_width = self.screen.get_rect().width#cause we don't know the width and the height we upate these settings in the screen using width and height attrobutes of the screen's rect to update the settings object
+
+#Note: Make sure you can quit by pressing Q before running the game in fullscreen mode; Pygame offers no default way to quit a game while in fullscreen mode.
+        self.settings.screen_height = self.screen.get_rect().height
         pygame.display.set_caption("Alien Invasion")
         #--Drawing the Ship to the Screen--
 
@@ -100,29 +107,58 @@ class AlienInvasion:
 
 #--Refactoring: The _check_events() and _update_screen() methods--
 
-    def _check_events(self):#we make a method  whther the player has clicked to close the window in this new method
-        """Respond to keypress and mouse events."""
-        #The _check_events() Method
+    #def _check_events(self):#we make a method  whther the player has clicked to close the window in this new method
+    #    """Respond to keypress and mouse events."""
+    #    #The _check_events() Method
 
+    #    for event in pygame.event.get():
+    #        if event.type == pygame.QUIT:
+    #            sys.exit()
+    #        elif event.type == pygame.KEYDOWN:#Inside the _check_events we add an elif block to the event loop to respond when Pygame detects a KEYDOWN event
+    #            if event.key == pygame.K_RIGHT:#The right arrow key represented by it(If the right arrow key was pressed, we move the ship to the right by increasing the value of self...
+    #        #         # Move the ship to the right.
+    #                # self.ship.rect.x += 5# self.ship.rect.x by 1(moves one pixel right to the x
+    #                self.ship.moving_right = True# We modify how the game respons wehn the player presses the right arrow key and instad of changing the psition directly, we set moving_right to True
+
+    #        #--Moving both left and right--
+    #            elif event.key == pygame.K_LEFT:
+    #                self.ship.moving_left = True
+
+    #        #--Allowing Continuous Movement--
+    #        elif event.type == pygame.KEYUP:#we add a new elif block, which responds to KEYP events. When the player releases the right arrow key (K_RIGHT) we set movingright to False and now we modify the run_game()
+    #            if event.key == pygame.K_RIGHT:
+    #                self.ship.moving_right = False
+    #            elif event.key == pygame.K_LEFT:
+    #                self.ship.moving_left = False
+
+    #--Refactoring_check_events()--
+
+    def _check_events(self):
+        """Respond to keypresses and mouse events."""
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 sys.exit()
-            elif event.type == pygame.KEYDOWN:#Inside the _check_events we add an elif block to the event loop to respond when Pygame detects a KEYDOWN event
-                if event.key == pygame.K_RIGHT:#The right arrow key represented by it(If the right arrow key was pressed, we move the ship to the right by increasing the value of self...
-            #         # Move the ship to the right.
-                    # self.ship.rect.x += 5# self.ship.rect.x by 1(moves one pixel right to the x
-                    self.ship.moving_right = True# We modify how the game respons wehn the player presses the right arrow key and instad of changing the psition directly, we set moving_right to True
+            elif event.type == pygame.KEYDOWN:
+                self._check_keydown_events(event)
+            elif event.type == pygame.KEYUP:
+                self._check_keyup_events(event)
 
-            #--Moving both left and right--
-                elif event.key == pygame.K_LEFT:
-                    self.ship.moving_left = True
+    def _check_keydown_events(self, event):
+        """Respond to keypresses."""
+        if event.key == pygame.K_RIGHT:
+            self.ship.moving_right = True
+        elif event.key == pygame.K_LEFT:
+            self.ship.moving_left = True
+        #--Pressing Q to Quit--
+        elif event.key == pygame.K_q:
+            sys.exit()
 
-            #--Allowing Continuous Movement--
-            elif event.type == pygame.KEYUP:#we add a new elif block, which responds to KEYP events. When the player releases the right arrow key (K_RIGHT) we set movingright to False and now we modify the run_game()
-                if event.key == pygame.K_RIGHT:
-                    self.ship.moving_right = False
-                elif event.key == pygame.K_LEFT:
-                    self.ship.moving_left = False
+    def _check_keyup_events(self, event):
+        """Respond to key releases."""
+        if event.key == pygame.K_RIGHT:
+            self.ship.moving_right = False
+        elif event.key == pygame.K_LEFT:
+            self.ship.moving_left = False
 
     def _update_screen(self):#
         """Update images on the screen, and flip to the new screen."""
@@ -131,6 +167,7 @@ class AlienInvasion:
         #--Drawing the Ship to the Screen--
         self.ship.blitme()
         pygame.display.flip()
+
 
 if __name__ == '__main__':
     # Make a game instance, and run the game.

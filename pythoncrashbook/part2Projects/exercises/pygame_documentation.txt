@@ -1,0 +1,9 @@
+Pygame documentation
+
+https://www.pygame.org/news
+
+Documentation
+
+https://www.pygame.org/docs/
+
+
