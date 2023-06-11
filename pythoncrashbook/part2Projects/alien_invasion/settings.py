@@ -11,3 +11,22 @@ class Settings:
         self.bg_color = (230, 230, 230)
         # Ship settings speed
         self.ship_spped = 1.5
+        # Bullet settings
+        self.bullet_speed = 1.0
+        self.bullet_width = 3
+        self.bullet_height = 15
+        self.bullet_color = (60, 60, 60)
+
+        # These settings creat dark gray bullets with a 3 pixels and a hieght of 15 pixels. The bullets will travel slightly slower than the ship.
+
+    def update(self):
+        """Move the bullet up the screen."""
+        # Update the decimal position of the bullet.
+        self.y -= self.settings.bullet_speed
+        # Update the rect position.
+        self.rect.y = self.y
+
+    def draw_bullet(self):
+        """Draw the bullet to the screen."""
+        pygame.draw.rect(self.screen, self.color, self.rect)
+
