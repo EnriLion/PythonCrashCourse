@@ -24,6 +24,9 @@ class Rocket:
 
     def update(self):
         """Update the rocket position based on the movement flag."""
+        #Update the rocket's x value, not the rect.
+        if self.moving_right and self.rect.right < self.screen_rect.right:
+            self.x += self.settings.rock_sp
         if self.moving_right:
             self.rect.x += 1
         elif self.moving_left:
