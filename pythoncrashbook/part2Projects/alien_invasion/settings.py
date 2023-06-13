@@ -16,6 +16,7 @@ class Settings:
         self.bullet_width = 3
         self.bullet_height = 15
         self.bullet_color = (60, 60, 60)
+        self.bullets_allowed = 3
 
         # These settings creat dark gray bullets with a 3 pixels and a hieght of 15 pixels. The bullets will travel slightly slower than the ship.
 

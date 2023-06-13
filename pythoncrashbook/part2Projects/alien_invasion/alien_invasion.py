@@ -104,7 +104,17 @@ class AlienInvasion:
             self.ship.update()# when we call update() the group automatically calls updates() for each sprite in the group. The line self.bullets.update() calls bullet.update() for each bullet we place in the group bullets.
             self.bullets.update()
 
+            #Get rid of bullets that have disappared.
+            # for bullet in self.bullets.copy():#We can't remove items from a list or group within a for loop we have to loop over a copy of the group; we use the copy() method to set up for loop(enables us to modify bullets inside the loop)
+            #     if bullet.rect.bottom <= 0:#Enables us to modify bullets inside the loop. We check each bullet to see whether it has disappeared off the top of the screen at
+            #         self.bullets.remove(bullet)# We remove it from bullets
+            # # print(len(self.bullets))# We  insert a print to call to show how many bullets currently exist in the game and verify that they're being deleted 
+            self._update_bullets()
+
             self._update_screen()
+
+
+
 
 
 
@@ -168,10 +178,22 @@ class AlienInvasion:
 
     def _fire_bullet(self):
         """Create a new bullet and add it to the bullets group."""
-        new_bullet = Bullet(self)
-        self.bullets.add(new_bullet)
+        # new_bullet = Bullet(self)
+        # self.bullets.add(new_bullet)
+        if len(self.bullets) < self.settings.bullets_allowed:
+            new_bullet = Bullet(self)
+            self.bullets.add(new_bullet)
+    def _update_bullets(self):
+        """Update position of bullets and get rid of old bullets."""
+        # Update bullet positions.
+        self._update_screen()
 
-    def _update_screen(self):#
+        # Get rid of bullets that have disappeared
+        for bullet in self.bullets.copy():
+            if bullet.rect.bottom <= 0:
+                self.bullets.remove(bullet)
+
+    def _update_screen(self):
         """Update images on the screen, and flip to the new screen."""
         #--Setting the background color--
         self.screen.fill(self.settings.bg_color)
