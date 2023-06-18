@@ -1,0 +1,9 @@
+#Adding Rows
+
+# To dertermine the number of rows, we find the available vertical space by substracting the alien height from the top, the ship height from the bottom, and two alien heights from the bottom of the screen:
+
+available_space_y = settings.scree_height - (3 * alien_height) - ship_height
+
+If these calculations are off, we'll see it right away and adjust our approach until we have reasonable spacing
+
+number_rows = available_height_y // (2 * alien_height)

@@ -104,12 +104,29 @@ class AlienInvasion:
         # Create an alien and find the number of alines in a row.
         # Spacing between each alien is equal to one alien width.
         alien = Alien(self)# We need to know the alien's width and height to place aliens  so we create the instance before we perform calculations
-        alien_width = alien.rect.width# alien width from its rect attribute(we don't have to keep working through the rect attribute and store it to the alien_width value so we don't need to have to keep working through the rect attribute
+        # alien_width = alien.rect.width# alien width from its rect attribute(we don't have to keep working through the rect attribute and store it to the alien_width value so we don't need to have to keep working through the rect attribute
+        alien_width, alien_height = alien.rect.size# We use the attribute size, which contains a tuple with the width and hieght of a rect object
+
         available_space_x = self.settings.screen_width - (2 * alien_width)#We calculate the horizontal space available for aliens and the number of aliens that can fit into that space
+
         number_aliens_x = available_space_x // (2 * alien_width)#and the number of aliens that can fit into that space
 
+        # Determine the number of rows of aliens that fit on the screen.
+        ship_height = self.ship.rect.height
+
+        available_space_y = (self.settings.screen_height - (3 * alien_height)- ship_height)# we make our calculation right after the calcation for available_space_X; is wrapped in parentheses so the outcome can be split over lines, whcih results in of 79 characters or less as is recommended lines, which resultin in lines of 79 characters or less as ire recommended
+
+        # number_rows = available_space_y // (2 * alien_height)
+        number_rows = available_space_y // (4 * alien_height)
+
+        # Create the full fleet of aliens.
+        for row_number in range(number_rows):# we create a nested loops one outer and one inner loop(creates the aliens in one row) and the outer counts from 0 to the number of rows we want
+            for alien_number in range(number_aliens_x):
+                self._create_alien(alien_number, row_number)
+
+
         # Create the first row of aliens.
-        for alien_number in range(number_aliens_x):#we set up  in the main body of the loop, we create a new alien and then set its x-coordinate value to place in the row
+        # for alien_number in range(number_aliens_x):#we set up  in the main body of the loop, we create a new alien and then set its x-coordinate value to place in the row
             # Create an alien and place it in the row.
             # alien = Alien(self)
             # alien.x = alien_width + 2 * alien_width * alien_number# Each line is pushed to the right one alien width from the left margin and we  multply the alien width by 2 to account for the space each alien
@@ -117,14 +134,16 @@ class AlienInvasion:
 #Note : Depending on the screen width you've chosen, the alignment of the first row of aliens might look slighly on your system
             # alien.rect.x = alien.x
             # self.aliens.add(alien)
-            self._create_alien(alien_number)
+            # self._create_alien(alien_number)
 
-    def _create_alien(self, alien_number):
+    def _create_alien(self, alien_number, row_number):
         """Create an alien and place it in the row."""
         alien = Alien(self)
-        alien_width = alien.rect.width
+        # alien_width = alien.rect.width
+        alien_width, alien_height = alien.rect.size
         alien.x = alien_width + 2 * alien_width * alien_number
         alien.rect.x = alien.x
+        alien.rect.y = alien.rect.height + 2 * alien.rect.height * row_number# We change an alien's y-coordinate value when it's not in the first row and we create an empty space at the top of the screen
         self.aliens.add(alien)
 
     def run_game(self):
