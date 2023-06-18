@@ -103,18 +103,29 @@ class AlienInvasion:
         # self.aliens.add(alien)
         # Create an alien and find the number of alines in a row.
         # Spacing between each alien is equal to one alien width.
-        alien = Alien(self)
-        alien_width = alien.rect.width
-        available_space_x = self.settings.screen_width - (2 * alien_width)
-        number_aliens_x = available_space_x // (2 * alien_width)
+        alien = Alien(self)# We need to know the alien's width and height to place aliens  so we create the instance before we perform calculations
+        alien_width = alien.rect.width# alien width from its rect attribute(we don't have to keep working through the rect attribute and store it to the alien_width value so we don't need to have to keep working through the rect attribute
+        available_space_x = self.settings.screen_width - (2 * alien_width)#We calculate the horizontal space available for aliens and the number of aliens that can fit into that space
+        number_aliens_x = available_space_x // (2 * alien_width)#and the number of aliens that can fit into that space
 
         # Create the first row of aliens.
-        for alien_number in range(number_aliens_x):
+        for alien_number in range(number_aliens_x):#we set up  in the main body of the loop, we create a new alien and then set its x-coordinate value to place in the row
             # Create an alien and place it in the row.
-            alien = Alien(self)
-            alien.x = alien_width + 2 * alien_width * alien_number
-            alien.rect.x = alien.x
-            self.aliens.add(alien)
+            # alien = Alien(self)
+            # alien.x = alien_width + 2 * alien_width * alien_number# Each line is pushed to the right one alien width from the left margin and we  multply the alien width by 2 to account for the space each alien
+
+#Note : Depending on the screen width you've chosen, the alignment of the first row of aliens might look slighly on your system
+            # alien.rect.x = alien.x
+            # self.aliens.add(alien)
+            self._create_alien(alien_number)
+
+    def _create_alien(self, alien_number):
+        """Create an alien and place it in the row."""
+        alien = Alien(self)
+        alien_width = alien.rect.width
+        alien.x = alien_width + 2 * alien_width * alien_number
+        alien.rect.x = alien.x
+        self.aliens.add(alien)
 
     def run_game(self):
         """Start the main loop for the game."""
