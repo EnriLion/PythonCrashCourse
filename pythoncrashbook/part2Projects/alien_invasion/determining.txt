@@ -1,0 +1,13 @@
+Determining How Many Aliens Fit in a Row
+
+We'll make this margin the width of one alien. Because we have two margins, the  width of one alien. Because we have two margins, ,the available space for aliens is the screen width minus two aliens widths:
+
+available_space_x = settings.screen_width - ( 2 * alien_width)
+
+We need to set a spacing betwen aliens to do this we need to display one alien is twice is width: one width for the alien and one width for the empty space to its right. To find the number of aliens that fit across the screen, we dive the available space by two times the width for an alien. We use floor division(//), which divides two numbers and drops any remainder, so we'll get an integer number of aliens:
+
+number_aliens_x = available_space_x // (2 * alien_width)
+
+We'll use these calculations when we create the fleet.
+
+Note: One greate aspect sis that we dont need to creat formulas and we have a screen that's overcrowded with aliens or has too few aliens. You can then revise your calculations based on what you see on the screen.

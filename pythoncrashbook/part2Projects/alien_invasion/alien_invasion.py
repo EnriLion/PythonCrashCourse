@@ -61,6 +61,7 @@ import pygame
 from settings import Settings
 from ship import Ship
 from bullet import Bullet
+from alien import Alien
 
 class AlienInvasion:
     """Overall class to manage assets and behavior."""
@@ -90,6 +91,30 @@ class AlienInvasion:
         # self.bg_color = (230, 230, 230)# show the variants of the RGB colors green(0, 255, 0), blue(0, 0, 255), red(255, 0, 0)
 
         self.bullets = pygame.sprite.Group()
+
+        self.aliens = pygame.sprite.Group()
+
+        self._create_fleet()
+
+    def _create_fleet(self):
+        """Create the fleet od aliens."""
+        # Make an alien.
+        # alien = Alien(self)
+        # self.aliens.add(alien)
+        # Create an alien and find the number of alines in a row.
+        # Spacing between each alien is equal to one alien width.
+        alien = Alien(self)
+        alien_width = alien.rect.width
+        available_space_x = self.settings.screen_width - (2 * alien_width)
+        number_aliens_x = available_space_x // (2 * alien_width)
+
+        # Create the first row of aliens.
+        for alien_number in range(number_aliens_x):
+            # Create an alien and place it in the row.
+            alien = Alien(self)
+            alien.x = alien_width + 2 * alien_width * alien_number
+            alien.rect.x = alien.x
+            self.aliens.add(alien)
 
     def run_game(self):
         """Start the main loop for the game."""
@@ -183,6 +208,7 @@ class AlienInvasion:
         if len(self.bullets) < self.settings.bullets_allowed:
             new_bullet = Bullet(self)
             self.bullets.add(new_bullet)
+
     def _update_bullets(self):
         """Update position of bullets and get rid of old bullets."""
         # Update bullet positions.
@@ -201,6 +227,8 @@ class AlienInvasion:
         self.ship.blitme()
         for bullet in self.bullets.sprites():
             bullet.draw_bullet()
+        self.aliens.draw(self.screen)
+
         pygame.display.flip()
 
 
