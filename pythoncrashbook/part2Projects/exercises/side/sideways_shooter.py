@@ -44,6 +44,12 @@ class Sideways:
              self.bullets.update()
              self._update_screen()
 
+             #Get rid of bullets that have disappeared.
+             for bullet in self.bullets.copy():
+                 if bullet.rect.right <= 0:
+                     self.bullets.remove(bullet)
+             print(len(self.bullets))
+
     def _check_events(self):
         """Respond to keypresses and mouse events."""
         for event in pygame.event.get():
@@ -90,9 +96,9 @@ class Sideways:
         """Start the main loop for the game."""
         self.sc.fill(self.settings.bg_color)
         self.ship.blitme()
-        pygame.display.flip()
         for bullet in self.bullets.sprites():
             bullet.draw_bullet()
+        pygame.display.flip()
 
 if __name__ == '__main__':
     # Make a game instance, and run the game.

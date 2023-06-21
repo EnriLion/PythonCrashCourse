@@ -122,6 +122,7 @@ class AlienInvasion:
         # Create the full fleet of aliens.
         for row_number in range(number_rows):# we create a nested loops one outer and one inner loop(creates the aliens in one row) and the outer counts from 0 to the number of rows we want
             for alien_number in range(number_aliens_x):
+                # self._create_alien(alien_number, row_number)
                 self._create_alien(alien_number, row_number)
 
 
@@ -139,7 +140,7 @@ class AlienInvasion:
     def _create_alien(self, alien_number, row_number):
         """Create an alien and place it in the row."""
         alien = Alien(self)
-        # alien_width = alien.rect.width
+        alien_width = alien.rect.width
         alien_width, alien_height = alien.rect.size
         alien.x = alien_width + 2 * alien_width * alien_number
         alien.rect.x = alien.x
@@ -248,6 +249,7 @@ class AlienInvasion:
         for bullet in self.bullets.copy():
             if bullet.rect.bottom <= 0:
                 self.bullets.remove(bullet)
+        print(len(self.bullets))
 
     def _update_screen(self):
         """Update images on the screen, and flip to the new screen."""

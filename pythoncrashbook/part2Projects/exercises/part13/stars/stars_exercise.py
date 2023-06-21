@@ -2,15 +2,30 @@ import sys
 
 import pygame
 
-class Star:
+from settings import Settings
+
+from star import Star
+
+
+class Star_exercise:
     """A class to manage the ship."""
 
     def __init__(self):
         """Initialize the game, and create game resources."""
         pygame.init()
+        self.settings = Settings()
+        self.aliens = pygame.sprite.Group()
+
+        self._create_fleet()
 
         self.screen = pygame.display.set_mode((1200, 800))
-        pygame.display.set_caption("Alien Invasion")
+        pygame.display.set_caption("Stars")
+
+    def _create_fleet(self):
+        """Create the fleet of aliens."""
+        # Make an alien.
+        star = Star(self)
+        self.stars.add(star)
 
     def run_game(self):
         """Start the main loop for the game."""
@@ -19,12 +34,13 @@ class Star:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     sys.exit()
-
+            # Redraw the screen during each pass through the loop.
+            self.screen.fill(self.settings.bg_color)
             # Make the most recently drawn screen visible
             pygame.display.flip()
 
 if __name__ == '__main__':
     # Make a game instance, and run the game.
-    s = Star()
+    s = Star_exercise()
     s.run_game()
 
