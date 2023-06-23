@@ -167,6 +167,8 @@ class AlienInvasion:
             # # print(len(self.bullets))# We  insert a print to call to show how many bullets currently exist in the game and verify that they're being deleted 
             self._update_bullets()
 
+            self._update_aliens()# In the main while lopp, we already have calls to update the ship and bullet positions, we'll add a call to update the position of each alien
+
             self._update_screen()
 
 
@@ -241,6 +243,14 @@ class AlienInvasion:
             self.bullets.add(new_bullet)
 
     def _update_bullets(self):
+        """Update the positions of all aliens in the fleet."""
+        self.aliens.update()
+
+    def _update_aliens(self): # Is not critical to place this method and I'llplace it just after
+        """Update the positions of all aliens in the fleet."""
+        self.aliens.update()
+
+    def _update_bullets(self):
         """Update position of bullets and get rid of old bullets."""
         # Update bullet positions.
         self._update_screen()
@@ -250,6 +260,7 @@ class AlienInvasion:
             if bullet.rect.bottom <= 0:
                 self.bullets.remove(bullet)
         print(len(self.bullets))
+
 
     def _update_screen(self):
         """Update images on the screen, and flip to the new screen."""

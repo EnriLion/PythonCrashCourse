@@ -14,7 +14,7 @@ class Star_exercise:
         """Initialize the game, and create game resources."""
         pygame.init()
         self.settings = Settings()
-        self.aliens = pygame.sprite.Group()
+        self.stars = pygame.sprite.Group()
 
         self._create_fleet()
 
@@ -36,6 +36,7 @@ class Star_exercise:
                     sys.exit()
             # Redraw the screen during each pass through the loop.
             self.screen.fill(self.settings.bg_color)
+            self.stars.draw(self.screen)
             # Make the most recently drawn screen visible
             pygame.display.flip()
 

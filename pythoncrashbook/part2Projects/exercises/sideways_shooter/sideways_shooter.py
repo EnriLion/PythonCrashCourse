@@ -42,13 +42,13 @@ class Sideways:
              self._check_events()
              self.ship.update()
              self.bullets.update()
-             self._update_screen()
 
              #Get rid of bullets that have disappeared.
              for bullet in self.bullets.copy():
-                 if bullet.rect.right <= 0:
+                 if bullet.rect.left <= 0:
                      self.bullets.remove(bullet)
              print(len(self.bullets))
+             self._update_screen()
 
     def _check_events(self):
         """Respond to keypresses and mouse events."""

@@ -17,6 +17,11 @@ class Settings:
         self.bullet_height = 15
         self.bullet_color = (60, 60, 60)
         self.bullets_allowed = 3
+        # Alien Settings
+        self.alien_speed = 1.0
+        self.fleet_drop_speed = 10# controls how quickly the fleet frops down the screen each time an alien reaches either edge
+        # fleet_direction of 1 represents right; -1 represents left
+        self.fleet_direction = 1# we could use a text value such as 'left' o ' right' but  the values as if-elif statements testing for fellet directions using values as numbers
 
         # These settings creat dark gray bullets with a 3 pixels and a hieght of 15 pixels. The bullets will travel slightly slower than the ship.
 

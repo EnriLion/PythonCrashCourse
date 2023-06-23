@@ -7,7 +7,7 @@ class Star(Sprite):
     def __init__(self, s_game):
         """Initialize the game, and set its starting position."""
         super().__init__()
-        sel.screen = s_game.screen
+        self.screen = s_game.screen
 
         # Load the star image and set its rect attribute.
         self.image = pygame.image.load('images/star.bmp')
