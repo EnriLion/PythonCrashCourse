@@ -242,12 +242,34 @@ class AlienInvasion:
             new_bullet = Bullet(self)
             self.bullets.add(new_bullet)
 
+    def _check_fleet_edges(self):
+        """Respond appropiately if any aliens have reached an edge."""
+        for alien in self.aliens.sprites():#We loop through the fleet and clal check_edges() on each alien
+            if alien.check_edges():# if returns True check edges the whole fleet needs to change direction
+                self._change_fleet_direction()#we call it and break out of the loop
+                break
+
+    def _change_fleet_direction(self):#We loop through all the aliens and drop each one using the setting fleet_drop_speed
+        """Drop the entire fleet and change the fleet's direction."""
+        for alien in self.aliens.sprites():
+            alien.rect.y += self.settings.fleet_drop_speed
+        self.settings.fleet_direction *= -1#We change the value of fleet_direciton multiplying its currenvalye by -1(change the direction to the alien's vertical position) 
+
+
+
     def _update_bullets(self):
         """Update the positions of all aliens in the fleet."""
         self.aliens.update()
+        if self.rect.right >= self.rect.left <= 0:
+            return True
 
     def _update_aliens(self): # Is not critical to place this method and I'llplace it just after
-        """Update the positions of all aliens in the fleet."""
+        # """Update the positions of all aliens in the fleet."""
+        """
+        Check if the fleet is at an edge,
+          then update the positions of all aliens in the fleet.
+        """
+        self._check_fleet_edges()
         self.aliens.update()
 
     def _update_bullets(self):
@@ -259,7 +281,7 @@ class AlienInvasion:
         for bullet in self.bullets.copy():
             if bullet.rect.bottom <= 0:
                 self.bullets.remove(bullet)
-        print(len(self.bullets))
+        # print(len(self.bullets))
 
 
     def _update_screen(self):
