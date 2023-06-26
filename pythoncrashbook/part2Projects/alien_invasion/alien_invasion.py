@@ -283,6 +283,13 @@ class AlienInvasion:
                 self.bullets.remove(bullet)
         # print(len(self.bullets))
 
+        # Shooting Aliens
+
+        # Check for any bullets that have hit aliens.
+        #  If so, get rid of the bullet and the alien.
+        collisions = pygame.sprite.groupcollide(
+                self.bullets, self.aliens, True, True)# The sprite.groupcollide() function compares the rects of each element in one group with the rects of each element in another group. In this case, it compares each bullet's rect with each alien's rect and returns a dictionary containing the bullets and aliens that have collided.
+
 
     def _update_screen(self):
         """Update images on the screen, and flip to the new screen."""
