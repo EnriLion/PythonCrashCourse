@@ -97,7 +97,7 @@ class AlienInvasion:
         self._create_fleet()
 
     def _create_fleet(self):
-        """Create the fleet od aliens."""
+        """Create the fleet odd aliens."""
         # Make an alien.
         # alien = Alien(self)
         # self.aliens.add(alien)
@@ -257,14 +257,14 @@ class AlienInvasion:
 
 
 
-    def _update_bullets(self):
-        """Update the positions of all aliens in the fleet."""
-        self.aliens.update()
-        if self.rect.right >= self.rect.left <= 0:
-            return True
+
+
 
     def _update_aliens(self): # Is not critical to place this method and I'llplace it just after
         # """Update the positions of all aliens in the fleet."""
+        # self.aliens.update()
+        # if self.rect.right >= self.rect.left <= 0:
+        #     return True
         """
         Check if the fleet is at an edge,
           then update the positions of all aliens in the fleet.
@@ -289,6 +289,12 @@ class AlienInvasion:
         #  If so, get rid of the bullet and the alien.
         collisions = pygame.sprite.groupcollide(
                 self.bullets, self.aliens, True, True)# The sprite.groupcollide() function compares the rects of each element in one group with the rects of each element in another group. In this case, it compares each bullet's rect with each alien's rect and returns a dictionary containing the bullets and aliens that have collided.
+
+        #Repopulating the Fleet
+        if not self.aliens:# We check whether the alines group is emtpy
+            # Destroy existing bullets and create new fleet.
+            self.bullets.empty()# we get rid of the bulles with the empty() method
+            self._create_fleet()# we also call_create_fleet() which fills the screen with aliens again
 
 
     def _update_screen(self):

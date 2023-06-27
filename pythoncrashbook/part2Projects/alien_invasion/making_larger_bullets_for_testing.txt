@@ -1,0 +1,5 @@
+# Making Larger Bullets for Testing
+
+We could change our own ideas but remember to restore the settings to normal when you're finished resting a feature
+
+#Try setting bullet_width 300 or even 3000 and see how quickly you can shoot down the fleet!
