@@ -55,10 +55,12 @@
 
 #Creating a Pygame Window and Responding to User Input
 import sys
+from time import sleep
 
 import pygame
 
 from settings import Settings
+from game_stats import GameStats
 from ship import Ship
 from bullet import Bullet
 from alien import Alien
@@ -95,6 +97,9 @@ class AlienInvasion:
         self.aliens = pygame.sprite.Group()
 
         self._create_fleet()
+
+        # Create an instance to store game statistics
+        self.stats = GameStats(self)
 
     def _create_fleet(self):
         """Create the fleet odd aliens."""
@@ -271,8 +276,8 @@ class AlienInvasion:
         # Ending the game
         # Detecing Alien and Ship Collisions
         # Look for alien-ship collisions.
-        if pygame.sprite.spritecollideany(self.ship, self.aliens):
-            print("Ship hit!!!")
+        if pygame.sprite.spritecollideany(self.ship, self.aliens):# the spritecollideany() function takes two arguments(a sprite and a group); the function looks for any member of the group has collided and it loops through the group aliens and returns the first alien it finds that has collided with ship(if not occur returns None and the if block won't execute
+            print("Ship hit!!!")#If it finds an alien that has collided with the ship it returns that alien and the if block executes: it prints Ship hit!!!
 
     def _update_bullets(self):
         """Update position of bullets and get rid of old bullets."""
