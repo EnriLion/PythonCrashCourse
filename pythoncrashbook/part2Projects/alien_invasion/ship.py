@@ -65,3 +65,9 @@ class Ship:
 #When we are working with a rect object we can use the x-and y-coordinates of the top, bottom. left and right edges of the rectangle as well as the center( we coul add values as center, centerx, cetnery attributes or if we are working at an edge of the screen as top, bottom, left or right) and also are attributes that combine those properties as midbottom, midtop, midleft and midright). These attributes spare us from having to do calculations that game developers formerly had to do manually, and you'll use them often.
 
 #Note: Pygame the origin(0, 0)is at the top-left corner of the screen, and coordinates increase as you go down and to the right. On a 1200 by 800 screen, the origin is at the top-left corner, and the bottom-right corner has the coordinates(1200, 800). These coordiantes refer to the game window, now the physical screen.
+
+    def center_ship(self):
+        """Center the ship on the screeen."""
+        self.rect.midbottom = self.screen_rect.midbottom
+        self.x = float(self.rect.x)
+        #Note: Notice that we never make more than one ship; we make only one ship instance for the whole game and recenter it whenever the ship has been hit. The static ships_left will thell us when the player has run out of ships.

@@ -83,6 +83,9 @@ class AlienInvasion:
 #Note: Make sure you can quit by pressing Q before running the game in fullscreen mode; Pygame offers no default way to quit a game while in fullscreen mode.
         self.settings.screen_height = self.screen.get_rect().height
         pygame.display.set_caption("Alien Invasion")
+
+        # Create an instance to store game statistics
+        self.stats = GameStats(self)
         #--Drawing the Ship to the Screen--
 
         self.ship = Ship(self)
@@ -100,6 +103,7 @@ class AlienInvasion:
 
         # Create an instance to store game statistics
         self.stats = GameStats(self)
+
 
     def _create_fleet(self):
         """Create the fleet odd aliens."""
@@ -210,6 +214,24 @@ class AlienInvasion:
 
     #--Refactoring_check_events()--
 
+    def _ship_hit(self):
+        """Respond to the ship being hit by an alien."""
+
+        # Decrement ships_left.
+        self.stats.ships_left -= 1 #the number of ships left is reduced by 1 after 
+
+        # Get rif of any remaining aliens and bulelts.
+        self.aliens.empty()# we empty both the aliens
+        self.bullets.empty()# we empty the bullets 
+
+        # Create a new fleet and center the ship.
+        self._create_fleet()# we create a fleet
+        self.ship.center_ship()# we center the ship
+
+        # Pause.
+        sleep(0.5)# the sleep pauses program execution hald a second
+
+
     def _check_events(self):
         """Respond to keypresses and mouse events."""
         for event in pygame.event.get():
@@ -277,6 +299,7 @@ class AlienInvasion:
         # Detecing Alien and Ship Collisions
         # Look for alien-ship collisions.
         if pygame.sprite.spritecollideany(self.ship, self.aliens):# the spritecollideany() function takes two arguments(a sprite and a group); the function looks for any member of the group has collided and it loops through the group aliens and returns the first alien it finds that has collided with ship(if not occur returns None and the if block won't execute
+            self._ship_hit()
             print("Ship hit!!!")#If it finds an alien that has collided with the ship it returns that alien and the if block executes: it prints Ship hit!!!
 
     def _update_bullets(self):
