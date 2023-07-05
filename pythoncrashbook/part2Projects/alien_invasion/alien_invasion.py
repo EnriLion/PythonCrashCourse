@@ -216,20 +216,21 @@ class AlienInvasion:
 
     def _ship_hit(self):
         """Respond to the ship being hit by an alien."""
+        if self.stats.ships_left > 0:
+            # Decrement ships_left.
+            self.stats.ships_left -= 1 #the number of ships left is reduced by 1 after 
+            # Get rif of any remaining aliens and bulelts.
+            self.aliens.empty()# we empty both the aliens
+            self.bullets.empty()# we empty the bullets 
 
-        # Decrement ships_left.
-        self.stats.ships_left -= 1 #the number of ships left is reduced by 1 after 
+            # Create a new fleet and center the ship.
+            self._create_fleet()# we create a fleet
+            self.ship.center_ship()# we center the ship
 
-        # Get rif of any remaining aliens and bulelts.
-        self.aliens.empty()# we empty both the aliens
-        self.bullets.empty()# we empty the bullets 
-
-        # Create a new fleet and center the ship.
-        self._create_fleet()# we create a fleet
-        self.ship.center_ship()# we center the ship
-
-        # Pause.
-        sleep(0.5)# the sleep pauses program execution hald a second
+            # Pause.
+            sleep(0.5)# the sleep pauses program execution hald a second
+        else:
+            self.stats.game_active = False
 
 
     def _check_events(self):
@@ -241,6 +242,15 @@ class AlienInvasion:
                 self._check_keydown_events(event)
             elif event.type == pygame.KEYUP:
                 self._check_keyup_events(event)
+
+    def _check_aliens_bottom(self):
+        """Check if any aliens have reached the bottom of the screen."""
+        screen_rect = self.screen.get_rect()
+        for alien in self.aliens.sprites():
+            if alien.rect.bottom >= screen_rect.bottom:#An alien reaches the bottom when its rect.bottom value is greater than or equal to the screen's rect.bottom attribute
+                # Treat this the same as if the ship got hit.
+                self._ship_hit()#if an alien reaches the bottom we call the function _ship_hit()
+                break
 
     def _check_keydown_events(self, event):
         """Respond to keypresses."""
@@ -301,6 +311,8 @@ class AlienInvasion:
         if pygame.sprite.spritecollideany(self.ship, self.aliens):# the spritecollideany() function takes two arguments(a sprite and a group); the function looks for any member of the group has collided and it loops through the group aliens and returns the first alien it finds that has collided with ship(if not occur returns None and the if block won't execute
             self._ship_hit()
             print("Ship hit!!!")#If it finds an alien that has collided with the ship it returns that alien and the if block executes: it prints Ship hit!!!
+        # Look for aliens hitting the bottom of the screen.
+        self._check_aliens_bottom()# We call the funciton after updating the positions of all the aliens after looking for alien and ship collisions.
 
     def _update_bullets(self):
         """Update position of bullets and get rid of old bullets."""

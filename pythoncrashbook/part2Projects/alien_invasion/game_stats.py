@@ -5,6 +5,8 @@ class GameStats:
         """Initialize statistics."""
         self.settings = ai_game.settings
         self.reset_stats()
+        # Start Alien Invasio in an active state.
+        self.game_active = True
 
     def reset_stats(self):# We also be able to call reset_stats() any time the player starts a new game.
         """Initialize statistics that can change during the game."""
