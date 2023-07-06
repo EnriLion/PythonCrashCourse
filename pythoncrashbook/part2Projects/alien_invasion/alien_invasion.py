@@ -164,21 +164,29 @@ class AlienInvasion:
 
             self._check_events()#we call the method form inside the while loop un run_game()
 
+
             #The _update_screen() Method
 
-            self.ship.update()# when we call update() the group automatically calls updates() for each sprite in the group. The line self.bullets.update() calls bullet.update() for each bullet we place in the group bullets.
-            self.bullets.update()
+            # self.ship.update()# when we call update() the group automatically calls updates() for each sprite in the group. The line self.bullets.update() calls bullet.update() for each bullet we place in the group bullets.
+            # self.bullets.update()
 
             #Get rid of bullets that have disappared.
             # for bullet in self.bullets.copy():#We can't remove items from a list or group within a for loop we have to loop over a copy of the group; we use the copy() method to set up for loop(enables us to modify bullets inside the loop)
             #     if bullet.rect.bottom <= 0:#Enables us to modify bullets inside the loop. We check each bullet to see whether it has disappeared off the top of the screen at
             #         self.bullets.remove(bullet)# We remove it from bullets
             # # print(len(self.bullets))# We  insert a print to call to show how many bullets currently exist in the game and verify that they're being deleted 
-            self._update_bullets()
+            # self._update_bullets()
 
-            self._update_aliens()# In the main while lopp, we already have calls to update the ship and bullet positions, we'll add a call to update the position of each alien
+            # self._update_aliens()# In the main while lopp, we already have calls to update the ship and bullet positions, we'll add a call to update the position of each alien
+
+            if self.stats.game_active:
+                self.ship.update()
+                self._update_bullets()
+                self._update_aliens()
 
             self._update_screen()
+
+            #We need to call check evnet to know if the user presses Q to quit the game or close the windows to also continue updateing the screen(the rest of the function calls only need to happen when the game is active, because wehn the game is inactive, we don't need to update the positions of game elements. Now when you play Alien Invasion the game should freeze when you've used up all your ships.
 
 
 
@@ -317,7 +325,8 @@ class AlienInvasion:
     def _update_bullets(self):
         """Update position of bullets and get rid of old bullets."""
         # Update bullet positions.
-        self._update_screen()
+        self.bullets.update()
+        # self._update_screen()
 
         # Get rid of bullets that have disappeared
         for bullet in self.bullets.copy():

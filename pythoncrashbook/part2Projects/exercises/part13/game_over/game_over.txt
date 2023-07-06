@@ -1,0 +1,1 @@
+In Sydeways Shooter, keep track of the number of times the ship is hit and the number of times an alien is hit by the ship. Decide on an appropriate condition for endinf the game, and stop the game when this situation occurs.
