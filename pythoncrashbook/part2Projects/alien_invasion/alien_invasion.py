@@ -243,6 +243,7 @@ class AlienInvasion:
             sleep(0.5)# the sleep pauses program execution hald a second
         else:
             self.stats.game_active = False
+            pygame.mouse.set_visible(True)#When the game ends the cursor reappers
 
 
     def _check_events(self):
@@ -254,6 +255,30 @@ class AlienInvasion:
                 self._check_keydown_events(event)
             elif event.type == pygame.KEYUP:
                 self._check_keyup_events(event)
+            elif event.type == pygame.MOUSEBUTTONDOWN:#1)Pygame detects a MOUSEBUTTONDOWN when the player clicks anytwhere on th escreen
+                mouse_pos = pygame.mouse.get_pos()# to acomplish to repod to mouse click on the play button(we use pygame.mouse.get_pos(); returns a tuple containng the mouse cursor's x- and y-coordinates when the mouse button is clicked
+                self._check_play_button(mouse_pos)# We send these values to the new method _check_play_button()
+
+    def _check_play_button(self, mouse_pos):
+        """Start a new game when the player clicks Play."""
+        button_clicked = self.play_button.rect.collidepoint(mouse_pos)
+        # if self.play_button.rect.collidepoint(mouse_pos):#the rect method collidepoint() to check whether the point of the mouse click overlaps the region defined by the playbutton's rect
+        if button_clicked and not self.stats.game_active:
+            # Reset the game statistics.
+            self.stats.reset_stats()# We reset the game statistics and we reset the game statistcs, which give the player three new ships.
+            self.stats.game_active = True# if that is true we set the game as true and the  game begins
+
+            # Get rid of any remaining aliens and bullets.
+            self.aliens.empty()
+
+            self.bullets.empty()
+
+            # Create a new fleet and center the ship
+            self._create_fleet()
+            self.ship.center_ship()
+
+            # Hide the mouse cursor.
+            pygame.mouse.set_visible(False) #Passing False to set_visible() tells Pygame to hide the cursos when the mouse is over the game window
 
     def _check_aliens_bottom(self):
         """Check if any aliens have reached the bottom of the screen."""
