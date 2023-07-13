@@ -45,9 +45,10 @@ class Sideways:
 
              #Get rid of bullets that have disappeared.
              for bullet in self.bullets.copy():
-                 if bullet.rect.left <= 0:
+                 if bullet.rect.left >= 1000:
                      self.bullets.remove(bullet)
              print(len(self.bullets))
+
              self._update_screen()
 
     def _check_events(self):
