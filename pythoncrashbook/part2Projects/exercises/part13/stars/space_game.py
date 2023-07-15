@@ -19,13 +19,31 @@ class SpaceGame:
         pygame.display.set_caption("Star Exercise")
         self.stars = pygame.sprite.Group()
         self._create_fleet()
-        self.stars.draw(self.screen)
 
 
     def _create_fleet(self):
         """Create the fleet of aliens."""
-        # Make an alien.
+        # Create a star and find the number of stars in a row.
+        # Spacing between each star is equal to one star width
         star = Star(self)
+        # star_width = star.rect.width
+        star_width, star_height = star.rect.size
+        available_space_x = self.settings.screen_width - (2 * star_width)
+        number_stars_x = available_space_x // (2 * star_width)
+
+        # Determine the number of rows of stars that fit on the screen.
+
+
+        # Create the first row of stars
+        for star_number in range(number_stars_x):
+            self._create_star(star_number)
+
+    def _create_star(self, star_number):
+        # Create a star and place it in the row.
+        star = Star(self)
+        star_width = star.rect.width
+        star.x = star_width +2 * star_width * star_number
+        star.rect.x = star.x
         self.stars.add(star)
 
     def run_game(self):
@@ -40,6 +58,7 @@ class SpaceGame:
             self.screen.fill(self.settings.bg_color)
 
             # Make the most recently drawn screen visible.
+            self.stars.draw(self.screen)
             pygame.display.flip()
 
 if __name__== '__main__':
