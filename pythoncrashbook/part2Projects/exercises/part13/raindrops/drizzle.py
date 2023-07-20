@@ -9,6 +9,7 @@ class Drizzle(Sprite):
         """Initialize the star and set its starting position."""
         super().__init__()
         self.screen = rs_game.screen
+        self.settings = rs_game.settings
 
         # Load the raindrop image and set its rect attribute.
         self.image = pygame.image.load('images/raindrop.bmp')
@@ -20,4 +21,9 @@ class Drizzle(Sprite):
 
         # Store the star's exact horizontal position.
         self.x = float(self.rect.x)
+        self.y = float(self.rect.x)
 
+    def update(self):
+        """Move the drizzle to the bottom."""
+        self.y +=  self.settings.drizzle_speed
+        self.rect.y = self.y

@@ -68,6 +68,11 @@ class Raindrops:
             # Make the most recently drawn screen visible.
             self.drizzles.draw(self.screen)
             pygame.display.flip()
+            self._update_drizzles()
+
+    def _update_drizzles(self):
+        """Update the positions fo all aliens in the fleet."""
+        self.drizzles.update()
 
 if __name__== '__main__':
     # Make a game instance, and run the game.
