@@ -29,6 +29,11 @@ class Settings:
 
         # These settings creat dark gray bullets with a 3 pixels and a hieght of 15 pixels. The bullets will travel slightly slower than the ship.
 
+        # How quickly the game speeds up
+        self.speedup_scale = 1.1
+
+        self.initialize_dynamic_settings()
+
     def update(self):
         """Move the bullet up the screen."""
         # Update the decimal position of the bullet.
@@ -40,3 +45,17 @@ class Settings:
         """Draw the bullet to the screen."""
         pygame.draw.rect(self.screen, self.color, self.rect)
 
+    def initialize_dynamic_settings(self):
+        """Initialize settings that change throughout the game."""
+        self.ship_speed = 1.5
+        self.bullet_speed = 3.0
+        self.alien_speed = 1.0
+
+        # fleet_direction of 1 represents right; -1 represents left.
+        self.fleet_direction = 1
+
+    def increase_speed(self):
+        """Increase speed settings."""
+        self.ship_speed *= self.speedup_scale
+        self.bullet_speed *= self.speedup_scale
+        self.alien_speed *= self.speedup_scale
