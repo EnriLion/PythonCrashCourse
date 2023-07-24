@@ -264,6 +264,8 @@ class AlienInvasion:
         button_clicked = self.play_button.rect.collidepoint(mouse_pos)
         # if self.play_button.rect.collidepoint(mouse_pos):#the rect method collidepoint() to check whether the point of the mouse click overlaps the region defined by the playbutton's rect
         if button_clicked and not self.stats.game_active:
+            #Reset the game settings.
+            self.settings.initialize_dynamic_settings()
             # Reset the game statistics.
             self.stats.reset_stats()# We reset the game statistics and we reset the game statistcs, which give the player three new ships.
             self.stats.game_active = True# if that is true we set the game as true and the  game begins

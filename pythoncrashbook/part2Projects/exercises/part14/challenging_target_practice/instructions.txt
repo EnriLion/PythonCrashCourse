@@ -1,0 +1,1 @@
+Start with your work from Exercise 14-2 (page 285). Make the target move faster as the game progresses, and restart the target at the orgiinal speed when the player clicks Play
