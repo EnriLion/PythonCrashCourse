@@ -74,6 +74,7 @@ class Raindrops:
         """Update the positions fo all aliens in the fleet."""
         self.drizzles.update()
 
+
 if __name__== '__main__':
     # Make a game instance, and run the game.
     rs = Raindrops()
