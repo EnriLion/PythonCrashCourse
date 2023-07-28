@@ -19,7 +19,9 @@ class Scoreboard:
 
     def prep_score(self):
         """Turn the score into a rendered image."""
-        score_str = str(self.stats.score)# we turn the numerical value stats.score into a string
+        rounded_score = round(self.stats.score, -1)
+        # score_str = str(self.stats.score)# we turn the numerical value stats.score into a string
+        score_str = "{;,}".format(rounded_score)
         self.score_image = self.font.render(score_str, True,
                 self.text_color, self.settings.bg_color)# and then we pass the string render() and pass the screen's background color and text color to render
 

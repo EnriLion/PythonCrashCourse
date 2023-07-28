@@ -31,6 +31,8 @@ class Settings:
 
         # How quickly the game speeds up
         self.speedup_scale = 1.1
+        # How quickly the alien point values increase
+        self.score_scale= 1.5 # A small increase in speed makes the game more challenging 
 
         self.initialize_dynamic_settings()
 
@@ -62,3 +64,6 @@ class Settings:
         self.ship_speed *= self.speedup_scale
         self.bullet_speed *= self.speedup_scale
         self.alien_speed *= self.speedup_scale
+
+        self.alien_points = int(self.alien_points * self.score_scale)# We increase the game's speed, we also increase the point value of each hit we use the int() function to increase the point value by whole integers
+        # print(self.alien_points)

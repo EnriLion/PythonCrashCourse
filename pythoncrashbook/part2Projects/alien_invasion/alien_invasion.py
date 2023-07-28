@@ -397,6 +397,7 @@ class AlienInvasion:
             for aliens in collisions.values():
                 self.stats.score += self.settings.alien_points * len(aliens)
             # self.stats.score += self.settings.alien_points
+            #If the collisions has been defined we loop through all values in the dictionary. Remember that each value is a list of aliens hit by a single bullet.
             self.sb.prep_score()
 
         if not self.aliens:
