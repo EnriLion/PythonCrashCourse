@@ -13,7 +13,6 @@ class BlueSky:
         pygame.display.set_caption("Blue Sky")
         self.bg_color = (0, 0, 233)
 
-
     def run_game(self):
         """Start the main loop for the game"""
         while True:
