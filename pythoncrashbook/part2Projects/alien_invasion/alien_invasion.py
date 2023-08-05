@@ -1,17 +1,17 @@
-##Creating a Pygame Window and Responding to User Input
-#import sys
+# Creating a Pygame Window and Responding to User Input
+# import sys
 
-#import pygame
+# import pygame
 
-#from settings import Settings
-#from ship import Ship
+# from settings import Settings
+# from ship import Ship
 
-#class AlienInvasion:
+# class AlienInvasion:
 #    """Overall class to manage assets and behavior."""
 
 #    def __init__(self):
 #        """Initialize the game, and create a game resources"""
-#        pygame.init() #initializes the background settings that Pygame needs to work properly
+#  pygame.init() #initializes the background settings that Pygame needs to work properly
 
 #        self.settings = Settings()# We create an instance of Settions and assing it to self.settings
 
@@ -434,5 +434,5 @@ if __name__ == '__main__':
 
 #It is better for us breaking our coude in methods and refactoring our code.
 
-
+pl
 

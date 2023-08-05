@@ -16,6 +16,7 @@ class Scoreboard:
 
         # Prepare the initial score image.
         self.prep_score()#to turnt he text to be displayed into an image, we call prep_score()
+        self.prep_high_score()
 
     def prep_score(self):
         """Turn the score into a rendered image."""
