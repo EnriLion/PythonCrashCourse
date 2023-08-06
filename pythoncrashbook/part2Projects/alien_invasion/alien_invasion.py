@@ -399,6 +399,7 @@ class AlienInvasion:
             # self.stats.score += self.settings.alien_points
             #If the collisions has been defined we loop through all values in the dictionary. Remember that each value is a list of aliens hit by a single bullet.
             self.sb.prep_score()
+            self.sb.check_high_score()
 
         if not self.aliens:
             # Destroy existing bullets and create new fleet.
@@ -434,5 +435,4 @@ if __name__ == '__main__':
 
 #It is better for us breaking our coude in methods and refactoring our code.
 
-pl
 

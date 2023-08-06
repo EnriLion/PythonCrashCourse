@@ -3,12 +3,12 @@ class GameStats:
 
     def __init__(self, ai_game):# We call this method from __init__ so the statistics are ste properly when the GameStats instance is first created
         """Initialize statistics."""
-        self.high_score = 0
         self.settings = ai_game.settings
         self.reset_stats()
         # Start Alien Invasio in an active state.
         # self.game_active = True
         self.game_active = False
+        self.high_score = 0
         #the game should start in an inactive state with no way for the player to start it until we make a Play button.
         # Prepare the initial score images.
 
