@@ -272,6 +272,7 @@ class AlienInvasion:
             self.stats.reset_stats()# We reset the game statistics and we reset the game statistcs, which give the player three new ships.
             self.stats.game_active = True# if that is true we set the game as true and the  game begins
             self.sb.prep_score()
+            self.sb.prep_level()
 
             # Get rid of any remaining aliens and bullets.
             self.aliens.empty()
@@ -406,6 +407,10 @@ class AlienInvasion:
             self.bullets.empty()
             self._create_fleet()
             self.settings.increase_speed()
+
+            # Increase level
+            self.stats.level += 1
+            self.sb.prep_level()
 
     def _update_screen(self):
         """Update images on the screen, and flip to the new screen."""

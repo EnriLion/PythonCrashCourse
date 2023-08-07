@@ -16,3 +16,4 @@ class GameStats:
         """Initialize statistics that can change during the game."""
         self.ships_left = self.settings.ship_limit
         self.score = 0 # each time a new game starts, we initialize score in reset_stats() rather than __init__()
+        self.level = 1
