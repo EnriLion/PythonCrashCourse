@@ -5,6 +5,7 @@ class Scoreboard:
 
     def __init__(self, ai_game):#we report the values we are tracking
         """Initialize scorekeeping attributes."""
+        self.ai_game = ai_game
         self.screen = ai_game.screen
         self.screen_rect = self.screen.get_rect()
         self.settings = ai_game.settings
@@ -18,6 +19,7 @@ class Scoreboard:
         self.prep_score()#to turnt he text to be displayed into an image, we call prep_score()
         self.prep_high_score()
         self.prep_level()
+        self.prep_ships()
 
     def prep_level(self):
         """Turn the level into a rendered image."""
@@ -30,6 +32,16 @@ class Scoreboard:
         self.level_rect = self.level_image.get_rect()# set's the image's right attribute to match the score's right attribute
         self.level_rect.right = self.score_rect.right
         self.level_rect.top = self.score_rect.bottom + 10# then sets the top attribute 10 pixels beneath the bottom of the score image to leave space betwen the score and the level
+
+    def prep_ships(self):
+        """Show how many ships are left."""
+        self.ships = Group()# creates an empty group, self.ships, to hold the sihp instances
+        for ship_number in range(self.stats.ships_left):# to fill the group a loop runs once for every ship the player has left
+            ship = Ship(self.ai_game) # we create a new ship 
+            ship.rect.x = 10 + ship_number * ship.rect.width # we create a new variable to set each ship's x-coordinate value to the ships appear next to each other with a 10-pixel margin on the left side of the group of ships
+            ship.rect.y = 10 # we set the y-coordinate value 10 pixels down form the top of the screen so the ships appear in the upper-left corner of the screen
+            self.ships.add(ship) # we add more ships
+
 
     def prep_high_score(self):
         """Turn the high score into a rendered image."""
@@ -62,6 +74,7 @@ class Scoreboard:
         self.screen.blit(self.score_image, self.score_rect)
         self.screen.blit(self.high_score_image, self.high_score_rect)
         self.screen.blit(self.level_image, self.level_rect)
+        self.ships.draw(self.screen)
 
     def check_high_score(self):
         """Check to see it there's a new high score."""
