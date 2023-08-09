@@ -1,0 +1,1 @@
+The high score is reset every time a player closes and restarts Alien Invsion. Fix this by writing the high score to a file before calling sys.exit() and reading in the hgih score when initializing its value in GameStats

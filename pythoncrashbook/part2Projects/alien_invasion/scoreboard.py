@@ -1,4 +1,7 @@
-import pygame.font # we impor the pugame.font module
+import pygame.font # we import the pugame.font module
+from pygame.sprite import Group
+
+from ship import Ship
 
 class Scoreboard:
     """A class to report scoring information."""
@@ -35,12 +38,12 @@ class Scoreboard:
 
     def prep_ships(self):
         """Show how many ships are left."""
-        self.ships = Group()# creates an empty group, self.ships, to hold the sihp instances
-        for ship_number in range(self.stats.ships_left):# to fill the group a loop runs once for every ship the player has left
-            ship = Ship(self.ai_game) # we create a new ship 
-            ship.rect.x = 10 + ship_number * ship.rect.width # we create a new variable to set each ship's x-coordinate value to the ships appear next to each other with a 10-pixel margin on the left side of the group of ships
-            ship.rect.y = 10 # we set the y-coordinate value 10 pixels down form the top of the screen so the ships appear in the upper-left corner of the screen
-            self.ships.add(ship) # we add more ships
+        self.ships = Group()
+        for ship_number in range(self.stats.ships_left):
+            ship = Ship(self.ai_game)
+            ship.rect.x = 10 + ship_number * ship.rect.width
+            ship.rect.y = 10
+            self.ships.add(ship)
 
 
     def prep_high_score(self):

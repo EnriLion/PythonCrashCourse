@@ -1,19 +1,23 @@
-#Creating the Ship Class
+# Creating the Ship Class
 import pygame
 from pygame.sprite import Sprite
 
-#We import  the pygame module before defining the class. The__init__() method of Ship takes two parameters: the self reference and a reference to the current instance of the alienInvasion.
+# We import  the pygame module before defining the class. The__init__() method of Ship takes two parameters: the self reference and a reference to the current instance of the alienInvasion.
 class Ship(Sprite): # we  make sure Ship inherits from Sprite 
     """A class to manage the ship."""
 
     def __init__(self, ai_game):
         """Initialize the ship and set it s starting position."""
-        super().__init__()# we call super at the beginning of __init__()
-        self.screen = ai_game.screen#we assign the screen to an attribute of Ship, so we can access it eaily in all  the methods in this class
-        #--Adjusting ship speed--
-        self.settings = ai_game.settings# We create a settings attribute for Ship, so we can use it in update()( we are adjusting the position of the ship by fracions of a pixel)
+        super().__init__()
+        # we call super at the beginning of __init__()
+        self.screen = ai_game.screen
+        # we assign the screen to an attribute of Ship, so we can access it eaily in all  the methods in this class
+        # --Adjusting ship speed--
+        self.settings = ai_game.settings
+        # We create a settings attribute for Ship, so we can use it in update()( we are adjusting the position of the ship by fracions of a pixel)
 
-        self.screen_rect = ai_game.screen.get_rect()# we access the screen's rect attribute using the get_rect() method and assign it to self.screen_rect. Doing so allow us to place the ship in the correct location on the scren
+        self.screen_rect = ai_game.screen.get_rect()
+        # we access the screen's rect attribute using the get_rect() method and assign it to self.screen_rect. Doing so allow us to place the ship in the correct location on the scren
 
         #Load the ship image and get its rect.
         self.image = pygame.image.load('images/ship.bmp') #we call the method load pygame.image.load() and give the location of our image and we assgin it to a variable self.image
