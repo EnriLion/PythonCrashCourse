@@ -31,7 +31,7 @@ class Raindrops:
         available_space_x = self.settings.screen_width - (2 * drizzle_width)
         number_drizzles_x = available_space_x // (2 * drizzle_width)
 
-        # Determine the number of rows of drizzles that fit on the screen.
+        # Determine the number of rows of stars that fit on the screen.
         available_space_y = (self.settings.screen_width - (3 * drizzle_height))
         number_rows = available_space_y // (2 * drizzle_width)
 
@@ -40,7 +40,7 @@ class Raindrops:
         # for star_number in range(number_stars_x):
         #     self._create_star(star_number)
 
-        # Create the full fleet of stars.
+        # Create the full fleet of drizzles.
         for row_number in range(number_rows):
             for drizzle_number in range(number_drizzles_x):
                 self._create_drizzle(drizzle_number, row_number)
@@ -69,6 +69,8 @@ class Raindrops:
             self.drizzles.draw(self.screen)
             pygame.display.flip()
             self._update_drizzles()
+
+
 
     def _update_drizzles(self):
         """Update the positions fo all aliens in the fleet."""
