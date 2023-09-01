@@ -46,7 +46,7 @@ class Raindrops:
                 self._create_drizzle(drizzle_number, row_number)
 
     def _create_drizzle(self, drizzle_number, row_number):
-        # Create a star and place it in the row.
+        # Create a drizzle and place it in the row.
         drizzle = Drizzle(self)
         drizzle_width, drizzle_height = drizzle.rect.size
         drizzle.y = drizzle_width + 2 * drizzle_width * drizzle_number
