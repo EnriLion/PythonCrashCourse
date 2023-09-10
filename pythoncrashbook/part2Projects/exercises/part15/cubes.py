@@ -5,12 +5,12 @@ y_values = [x**3 for x in x_values]
 
 plt.style.use('seaborn')
 fig, ax = plt.subplots()
+ax.scatter(x_values, y_values,  s=10)
 
 ax.set_title("Cubes", fontsize=24)
 ax.set_xlabel("Value", fontsize=14)
 ax.set_ylabel("Cubes of Value", fontsize=14)
 
-ax.axis([0, 5001, 0, 5001])
+ax.axis([0, 5100, 0, 5100**3])
 
-ax.scatter(x_values, y_values, c=(0, 0.8, 0), s=10)
 plt.show()
