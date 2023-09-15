@@ -1,5 +1,4 @@
 import pygame
-
 from pygame.sprite import Sprite
 
 class Drizzle(Sprite):
@@ -20,6 +19,13 @@ class Drizzle(Sprite):
         self.rect.x = self.rect.width
         self.rect.y = self.rect.height
 
+    def check_disappear(self):
+        """Check if drizzle has disappeared."""
+        if self.rect.top > self.screen.get_rect().bottom:
+            return True
+        else:
+            return False
+
 
 
         # Store the star's exact horizontal position.
@@ -30,4 +36,3 @@ class Drizzle(Sprite):
         """Move the drizzle to the bottom."""
         self.y -=  (self.settings.drizzle_speed * self.settings.fleet_direction)
         self.rect.y = self.y
-

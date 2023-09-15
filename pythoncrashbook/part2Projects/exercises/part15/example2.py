@@ -1,4 +1,5 @@
 import matplotlib.pyplot as plt
+import numpy as np
 
 from random_walk import RandomWalk
 
@@ -6,7 +7,7 @@ from random_walk import RandomWalk
 while True:
     # Make a random walk.
     # rw = RandomWalk()
-    rw = RandomWalk(5000)
+    rw = RandomWalk(50_000)
     # Importing the RandomWalk store it in rw
     rw.fill_walk()
     # we call fill_walk()
@@ -20,19 +21,21 @@ while True:
     # We use range()=generate list of number equal to numbepoints in the walk.
 
     # ax.scatter(rw.x_values, rw.y_values, s=15)
-    # ax.scatter(rw.x_values, rw.y_values, c=point_numbers, cmap=plt.cm.Blues, edgecolors='none', s=15)
-    plt.plot(rw.x_values, rw.y_values, linewidth=0.5)
+    plt.plot(rw.x_values, rw.y_values, linewidth=0.5, color='blue')
     ax.scatter(0, 0, c='green', edgecolors='none', s=100)
     ax.scatter(rw.x_values[-1], rw.y_values[-1], c='red', edgecolors='none', s=100)
     # we feed the walk's x-and y-values to scatter
     # we pass point_numbers to the c argument, use the Blues colormap
     # the result is a varies from light to dark blue along a gradient
     # Remove the axes.
-    ax.get_xaxis().set_visible(False)
-    ax.get_yaxis().set_visible(False)
-    plt.title('Pollen grain path  on the surface of a drop of water')
+    # ax.get_xaxis().set_visible(False)
+    # ax.get_yaxis().set_visible(False)
+    plt.xlabel('X')
+    plt.ylabel('Y')
+    plt.title('Path of a pollen grain on the surface of a drop of water')
     plt.show()
 
     keep_running = input("Make another walk? (y/n):")
     if keep_running == 'n':
         break
+

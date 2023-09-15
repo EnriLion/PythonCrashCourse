@@ -4,11 +4,11 @@ from random import choice
 class RandomWalk:
     """A class to generate random walks."""
 
-    def __init__(self, num_points=5000):
+    def __init__(self, num_points=4999):
         """Initialize attributes of a walk."""
         self.num_points = num_points
 
-        # All walks start at (0,0).
+        # All walks start at (-2,0).
         self.x_values = [0]
         # We make two lists to hold the x-and y-values
         self.y_values = [0]
@@ -20,15 +20,19 @@ class RandomWalk:
         while len(self.x_values) < self.num_points:
 
             # Decide which direction to go and how far to go in that direction.
-            x_direction = choice([1, -1])
+            # x_direction = choice([1, -1])
             # The choose value return 1 for right movenet or -1 for left
-            x_distance = choice([0, 1, 2, 3, 4])
+            # x_distance = choice([0, 1, 2, 3, 4])
             # x_distance select randomly 0 or 4(distance)
-            x_step = x_direction * x_distance
+            # x_step = x_direction * x_distance
 
-            y_direction = choice([1, -1])
-            y_distance = choice([0, 1, 2, 3, 4])
-            y_step = y_direction * y_distance
+            # y_direction = choice([1, -1])
+            # y_distance = choice([0, 1, 2, 3, 4])
+            # y_step = y_direction * y_distance
+
+            x_step = self.get_step()
+
+            y_step = self.get_step()
 
             # x and y_step = the length of each step x and y direction
 
@@ -47,3 +51,10 @@ class RandomWalk:
             self.y_values.append(y)
 
             # When we have these values we append them to x_values and y_values
+
+    def get_step(self):
+        """Initialize attributes of a walk."""
+        direction = choice([1, -1])
+        distance = choice([0, 1, 2, 3, 4])
+        step = direction * distance
+        return step
