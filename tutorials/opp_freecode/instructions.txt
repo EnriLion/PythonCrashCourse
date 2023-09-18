@@ -1,0 +1,57 @@
+Python programmers should be able to use fundamental object-oriented programming concepts.
+
+OOP concepts:
+
+1)Encapsulation
+
+2)Inheritance
+
+3)Polymorphism
+
+4)Abstraction
+
+
+Classes and Objects?
+
+- A class is a collection of instance variables and realted methods that define a particular object type.
+
+1)Encapsulation
+
+Encapsulation is the process of preventing clients frmo accessing certain properties, which can only be accessed through specific methods.
+
+Private attributes are inaccessible attributes, and information hiding is the process of making particula attributes private. We use two underscore to declare private characteristics.
+
+private attribute  is called a __discount
+
+2)Inheritance
+
+Is the most significant of OOP.
+
+The subclass or child class is the class that inherits.The superclass or parent class is the class from which methods and/or attributes are inherited.
+
+Two new classes have been added to our bookseller's sales software: a Novel class and Academic Class.
+
+We can see that common methods like get_price() and set_discount(). Rewriting all that code for each new class is a waste of time, effort and memory.
+
+3)Polymorphism
+
+The term comes from the Greek languages and means 'comehting that takes on multiple forms'.
+
+Polymorphism refers to  a subclass's ability to adapt a method that already exists in its superclass to meet its needed. 
+
+The Academic subclass, on the ohter hand is defined with its own __repr__ special function in the example code above. The Academic subclass with invoke its own method by suppressing the same method present its superclass.
+
+
+4)Abstraction
+
+Abstraction isn't supported directly in Python. Calling a magic method, on the other hand, allows for abstraction.
+
+If an abstract method is declared in a superclass, subclasses that inherit from the superclass must have their own implementation of the method.
+
+A superclass's abstract method will never be called by its subclasses. But the abstraction aids in the mainentance of a similar structure across all subclasses.
+
+In our parent class Book, we have defined the __repr__ method. Let's make that method abstract, forcing every subclass to compulsorily have its own __repr__ method.
+
+Method Overloading
+
+Follows object-oriented programming concepts. It simpy refers to the use of many methods with the same name that take various numbers of arguments within a single class.
