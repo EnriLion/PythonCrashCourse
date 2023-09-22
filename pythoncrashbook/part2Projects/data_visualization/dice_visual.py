@@ -15,14 +15,17 @@ for roll_num in range(100):
     # We're not longer printing the results, we can increase the number of stimulated rolls to 1000
     # result = die.roll()
     result = die_1.roll() + die_2.roll()
+    # After creating tow instances we roll dice
     results.append(result)
 
 # print(results)
 # Analyze the results.
 frequencies = []
 max_result = die_1.num_sides + die_2.num_sides
+# The max_resutl is the largest possible result(12) and the smallest(2)
 # To analyze the rolls, we create the empty list frequencies
 for value in range(1, max_result+1):
+    # We analyze the results, we coulnt the number of results for each value
     # We loop through the possible values(1 thorugh 6)
     frequency = results.count(value)
     # how many times each number appears in results
@@ -33,6 +36,7 @@ for value in range(1, max_result+1):
 # Visualize the results.
 # x_values = list(range(1, die.num_sides+1))
 x_values = list(range(2, max_result+1))
+# controls the spacing between tick marks on the x-axis
 # we need a bar for each of the possible  and we store these in a list called x_values(starts at 1 and ends at the number of sides on the die plotly doesn't accept the results of the range() function directly
 # so we convert the range to a list() function
 data = [Bar(x=x_values, y=frequencies)]
